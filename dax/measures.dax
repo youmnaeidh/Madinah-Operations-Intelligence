@@ -1,0 +1,91 @@
+// Core volume
+Incoming Reports = COUNTROWS(FactIncidents)
+
+Resolved Reports =
+CALCULATE([Incoming Reports], FactIncidents[Status] = "Resolved")
+
+Open Reports =
+CALCULATE([Incoming Reports], FactIncidents[Status] <> "Resolved")
+
+Resolution Rate = DIVIDE([Resolved Reports], [Incoming Reports])
+
+// Service level and speed
+SLA Met Reports =
+CALCULATE([Resolved Reports], FactIncidents[SLAMet] = TRUE())
+
+SLA Compliance = DIVIDE([SLA Met Reports], [Resolved Reports])
+
+Median Resolution Hours =
+MEDIANX(
+    FILTER(FactIncidents, FactIncidents[Status] = "Resolved"),
+    FactIncidents[ResolutionHours]
+)
+
+Average Response Hours = AVERAGE(FactIncidents[ResponseHours])
+
+// Quality and recurrence
+Repeat Reports =
+CALCULATE([Incoming Reports], FactIncidents[IsRepeat] = TRUE())
+
+Repeat Rate = DIVIDE([Repeat Reports], [Incoming Reports])
+
+Reopened Reports =
+CALCULATE([Incoming Reports], FactIncidents[WasReopened] = TRUE())
+
+Reopen Rate = DIVIDE([Reopened Reports], [Resolved Reports])
+
+Average Satisfaction = AVERAGE(FactIncidents[SatisfactionScore])
+
+// Capacity
+Available Capacity = SUM(FactDailyCapacity[IncidentCapacity])
+
+Demand Capacity Ratio = DIVIDE([Incoming Reports], [Available Capacity])
+
+Capacity Gap = [Incoming Reports] - [Available Capacity]
+
+Pressure Score =
+VAR DemandScore = MIN(100, [Demand Capacity Ratio] * 65)
+VAR RepeatScore = MIN(20, [Repeat Rate] * 150)
+VAR SLARiskScore = MIN(15, (1 - [SLA Compliance]) * 75)
+RETURN MIN(100, DemandScore + RepeatScore + SLARiskScore)
+
+Pressure Band =
+SWITCH(
+    TRUE(),
+    [Pressure Score] >= 80, "Critical",
+    [Pressure Score] >= 65, "High",
+    [Pressure Score] >= 45, "Moderate",
+    "Normal"
+)
+
+// Time intelligence
+Reports Previous Month =
+CALCULATE([Incoming Reports], DATEADD(DimDate[Date], -1, MONTH))
+
+Reports MoM % =
+DIVIDE([Incoming Reports] - [Reports Previous Month], [Reports Previous Month])
+
+// Central Area decision measures
+Central Area Reports =
+CALCULATE([Incoming Reports], DimDistrict[DistrictEN] = "Central Area")
+
+Central Evening Reports =
+CALCULATE(
+    [Incoming Reports],
+    DimDistrict[DistrictEN] = "Central Area",
+    DimTime[TimeBand] = "Evening"
+)
+
+Central Evening Share = DIVIDE([Central Evening Reports], [Central Area Reports])
+
+Recommended Additional Teams =
+VAR Gap = MAX(0, [Capacity Gap])
+RETURN CEILING(DIVIDE(Gap, 4), 1)
+
+Operational Finding =
+VAR Area = SELECTEDVALUE(DimDistrict[DistrictEN], "Selected area")
+VAR Score = FORMAT([Pressure Score], "0")
+VAR Teams = FORMAT([Recommended Additional Teams], "0")
+RETURN
+    Area & " has a pressure score of " & Score & "/100. " &
+    "Consider reallocating " & Teams & " field team(s) during the selected period."
