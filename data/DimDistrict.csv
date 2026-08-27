@@ -1,0 +1,13 @@
+﻿DistrictKey,DistrictEN,DistrictAR,Sector,CenterLat,CenterLon,DemandWeight
+1,Central Area,المنطقة المركزية,Central,24.4672,39.6111,1.85
+2,Quba,قباء,South,24.4404,39.6176,1.08
+3,Al Iskan,الإسكان,East,24.454,39.646,1.02
+4,Al Aziziyah,العزيزية,West,24.4239,39.5502,1.04
+5,Al Salam,السلام,West,24.461,39.545,0.94
+6,Uhud,أحد,North,24.5006,39.6168,0.93
+7,Bani Harithah,بني حارثة,North,24.495,39.64,0.78
+8,Al Aridh,العريض,East,24.4818,39.6549,0.91
+9,Wadi Mahzur,وادي مهزور,East,24.4414,39.64,0.82
+10,Bir Uthman,بئر عثمان,North,24.489,39.583,0.75
+11,Al Oyoun,العيون,North,24.503,39.586,0.7
+12,Al Jamawat,الجماوات,West,24.438,39.568,0.8

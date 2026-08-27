@@ -1,0 +1,7 @@
+{
+  "seed": 20260405,
+  "period_start": "2025-10-05 00:00:00",
+  "period_end": "2026-04-05 23:59:59",
+  "incident_rows": 30000,
+  "disclaimer": "All records are synthetic and created for portfolio demonstration. No municipal or personal data is included."
+}

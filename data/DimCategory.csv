@@ -1,0 +1,9 @@
+﻿CategoryKey,CategoryEN,CategoryAR,BaseShare,SLATargetHours,Complexity
+1,Environmental Sustainability,الاستدامة البيئية,0.28,24,1.05
+2,Roads & Infrastructure,الطرق والبنية التحتية,0.16,72,1.15
+3,Parks & Landscaping,الحدائق والأنسنة,0.13,48,0.95
+4,Commercial Occupancy,الإشغالات التجارية,0.12,24,1.1
+5,Buildings & Public Facilities,المباني والمرافق العامة,0.1,72,1.1
+6,Electrical Protection,الحماية الكهربائية,0.08,24,1.25
+7,Land & Equipment,الأراضي والمعدات,0.07,96,0.9
+8,Street Vendors,الباعة الجائلون,0.06,12,1.15
