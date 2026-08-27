@@ -1,0 +1,59 @@
+{
+  "project_type": "Portfolio prototype using synthetic data",
+  "framework": "scikit-learn Pipeline with ColumnTransformer preprocessing",
+  "prediction_target": "SLA breach before incident resolution",
+  "selected_model": "AdaBoost Decision Stumps",
+  "decision_threshold": 0.27,
+  "risk_band_thresholds": {
+    "Low": "probability < 0.25",
+    "Moderate": "0.25 <= probability < 0.40",
+    "High": "probability >= 0.40"
+  },
+  "validation_roc_auc_comparison": {
+    "Logistic Regression": 0.6551,
+    "AdaBoost Decision Stumps": 0.6652
+  },
+  "test_metrics": {
+    "roc_auc": 0.6927,
+    "accuracy": 0.5628,
+    "precision": 0.3664,
+    "recall": 0.7657,
+    "specificity": 0.4837,
+    "f1": 0.4956,
+    "brier_score": 0.1841,
+    "true_positive": 1301,
+    "true_negative": 2108,
+    "false_positive": 2250,
+    "false_negative": 398
+  },
+  "time_split": {
+    "training": "2025-10-05 to 2026-01-31",
+    "validation": "2026-02-01 to 2026-02-28",
+    "testing": "2026-03-01 to 2026-04-05"
+  },
+  "row_counts": {
+    "training": 18812,
+    "validation": 4864,
+    "testing": 6057,
+    "open_scored": 267,
+    "all_scored": 30000
+  },
+  "test_breach_rate": 0.2805,
+  "high_risk_count_all_rows": 4074,
+  "leakage_exclusions": [
+    "AssignedAt",
+    "ResolvedAt",
+    "ResponseHours",
+    "ResolutionHours",
+    "SLAMet",
+    "Status as a feature",
+    "WasReopened",
+    "SatisfactionScore"
+  ],
+  "limitations": [
+    "All source records are synthetic.",
+    "Only six months of history are available.",
+    "The model is a portfolio prototype, not a production municipal system.",
+    "Effective capacity uses a documented synthetic allocation assumption."
+  ]
+}

@@ -1,0 +1,93 @@
+Feature,Importance,ImportanceShare
+PlannedTeams,0.402798259405079,0.402798
+Complexity,0.283254810690077,0.283255
+DemandWeight,0.0560876019563272,0.056088
+CategoryKey_6,0.054579670916037486,0.05458
+Subcategory_Exposed cable,0.03880740725005949,0.038807
+Subcategory_Electrical cabinet,0.03571239990548125,0.035712
+HourCos,0.026929481817467064,0.026929
+HourSin,0.02073627369743007,0.020736
+TimeBand_Midday,0.015323084334685867,0.015323
+IncidentCapacity,0.01032238891437615,0.010322
+CategoryKey_7,0.009894689704366967,0.009895
+TimeBand_Evening,0.009877894675001846,0.009878
+Priority_High,0.007034881532834839,0.007035
+Sector_Central,0.006855872128567777,0.006856
+Priority_Medium,0.006290546388851424,0.006291
+SLATargetHours,0.005753422877229879,0.005753
+Subcategory_Damaged landscaping,0.004946918542756166,0.004947
+AvailabilityRatio,0.0047943952633703315,0.004794
+DistrictKey_3,0.0,0.0
+DistrictKey_2,0.0,0.0
+DaySin,0.0,0.0
+DayCos,0.0,0.0
+DistrictKey_10,0.0,0.0
+DistrictKey_1,0.0,0.0
+DistrictKey_12,0.0,0.0
+IsWeekend,0.0,0.0
+IsRepeatNumeric,0.0,0.0
+AvailableTeams,0.0,0.0
+Sector_North,0.0,0.0
+Sector_East,0.0,0.0
+DistrictKey_9,0.0,0.0
+DistrictKey_8,0.0,0.0
+DistrictKey_6,0.0,0.0
+DistrictKey_7,0.0,0.0
+DistrictKey_5,0.0,0.0
+DistrictKey_4,0.0,0.0
+DistrictKey_11,0.0,0.0
+CategoryKey_4,0.0,0.0
+Subcategory_Abandoned equipment,0.0,0.0
+CategoryKey_8,0.0,0.0
+CategoryKey_5,0.0,0.0
+CategoryKey_3,0.0,0.0
+CategoryKey_2,0.0,0.0
+Sector_South,0.0,0.0
+Subcategory_Damaged pavement,0.0,0.0
+Subcategory_Construction debris,0.0,0.0
+Subcategory_Drainage issue,0.0,0.0
+Subcategory_Facility damage,0.0,0.0
+Subcategory_Fence issue,0.0,0.0
+Subcategory_Hygiene concern,0.0,0.0
+Subcategory_Irrigation leak,0.0,0.0
+Subcategory_Location violation,0.0,0.0
+Subcategory_Missed collection,0.0,0.0
+Subcategory_Outdoor display,0.0,0.0
+Subcategory_Overflowing container,0.0,0.0
+Subcategory_Park cleanliness,0.0,0.0
+Subcategory_Accessibility issue,0.0,0.0
+Subcategory_Congestion,0.0,0.0
+CategoryKey_1,0.0,0.0
+Sector_West,0.0,0.0
+Subcategory_Safety hazard,0.0,0.0
+Subcategory_Road obstruction,0.0,0.0
+Subcategory_Public amenity issue,0.0,0.0
+Subcategory_Pothole,0.0,0.0
+Subcategory_Sidewalk obstruction,0.0,0.0
+Subcategory_Signage issue,0.0,0.0
+Subcategory_Street cleanliness,0.0,0.0
+Subcategory_Streetlight outage,0.0,0.0
+Subcategory_Vacant land waste,0.0,0.0
+Subcategory_Waste accumulation,0.0,0.0
+ChannelKey_1,0.0,0.0
+ChannelKey_2,0.0,0.0
+Subcategory_Tree maintenance,0.0,0.0
+Subcategory_Unauthorized occupation,0.0,0.0
+Subcategory_Unlicensed vendor,0.0,0.0
+Subcategory_Unsafe structure,0.0,0.0
+ChannelKey_6,0.0,0.0
+ChannelKey_5,0.0,0.0
+ChannelKey_4,0.0,0.0
+ChannelKey_3,0.0,0.0
+Priority_Low,0.0,0.0
+Shift_Evening,0.0,0.0
+Priority_Critical,0.0,0.0
+ChannelKey_7,0.0,0.0
+Shift_Night,0.0,0.0
+Shift_Morning,0.0,0.0
+TimeBand_Late Night,0.0,0.0
+TimeBand_Morning,0.0,0.0
+Month_1,0.0,0.0
+Month_10,0.0,0.0
+Month_11,0.0,0.0
+Month_12,0.0,0.0

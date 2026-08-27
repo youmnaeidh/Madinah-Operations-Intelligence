@@ -1,0 +1,10 @@
+Model,Dataset,Metric,Value
+AdaBoost Decision Stumps,Test,roc_auc,0.6927
+AdaBoost Decision Stumps,Test,accuracy,0.5628
+AdaBoost Decision Stumps,Test,precision,0.3664
+AdaBoost Decision Stumps,Test,recall,0.7657
+AdaBoost Decision Stumps,Test,specificity,0.4837
+AdaBoost Decision Stumps,Test,f1,0.4956
+AdaBoost Decision Stumps,Test,brier_score,0.1841
+Logistic Regression,Validation,roc_auc,0.6551
+AdaBoost Decision Stumps,Validation,roc_auc,0.6652
