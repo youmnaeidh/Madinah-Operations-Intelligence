@@ -1,0 +1,10 @@
+*.pkl
+__pycache__/
+*.py[cod]
+.python-packages/
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
