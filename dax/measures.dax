@@ -1,11 +1,19 @@
-// Core volume
+// Apply in Power BI Desktop; this text does not alter the archived PBIX.
+// Relationships and required queries: documentation/POWER-BI-DESKTOP.md.
+// All measures respect the current report context unless stated otherwise.
+// Core volume: Open is a status; Active is the unresolved population.
 Incoming Reports = COUNTROWS(FactIncidents)
 
 Resolved Reports =
-CALCULATE([Incoming Reports], FactIncidents[Status] = "Resolved")
+CALCULATE([Incoming Reports], KEEPFILTERS(FactIncidents[Status] = "Resolved"))
 
 Open Reports =
-CALCULATE([Incoming Reports], FactIncidents[Status] <> "Resolved")
+CALCULATE([Incoming Reports], KEEPFILTERS(FactIncidents[Status] = "Open"))
+
+In Progress Reports =
+CALCULATE([Incoming Reports], KEEPFILTERS(FactIncidents[Status] = "In Progress"))
+
+Active Reports = [Open Reports] + [In Progress Reports]
 
 Resolution Rate = DIVIDE([Resolved Reports], [Incoming Reports])
 
@@ -21,7 +29,11 @@ MEDIANX(
     FactIncidents[ResolutionHours]
 )
 
-Average Response Hours = AVERAGE(FactIncidents[ResponseHours])
+// Derived in Power Query from elapsed timestamp seconds; keep ResponseHours
+// as a historical source column with unknown semantics, not a response KPI.
+Average Assignment Delay Hours = AVERAGE(FactIncidents[AssignmentDelayHours])
+
+Median Assignment Delay Hours = MEDIAN(FactIncidents[AssignmentDelayHours])
 
 // Quality and recurrence
 Repeat Reports =
@@ -36,22 +48,83 @@ Reopen Rate = DIVIDE([Reopened Reports], [Resolved Reports])
 
 Average Satisfaction = AVERAGE(FactIncidents[SatisfactionScore])
 
-// Capacity
-Available Capacity = SUM(FactDailyCapacity[IncidentCapacity])
+// Nominal date/district/shift capacity, not verified effective productivity.
+// Category/channel/team/hour allocations are absent: suppress misleading ratios
+// for those slices. DimTime shift filtering is projected onto the capacity fact.
+Capacity Context Supported =
+NOT (
+    ISFILTERED(DimCategory) || ISFILTERED(DimChannel) || ISFILTERED(DimTeam) ||
+    ISFILTERED(DimTime[Hour]) || ISFILTERED(DimTime[TimeBand])
+)
 
-Demand Capacity Ratio = DIVIDE([Incoming Reports], [Available Capacity])
+Nominal Incident Capacity =
+IF(
+    [Capacity Context Supported],
+    CALCULATE(
+        SUM(FactDailyCapacity[IncidentCapacity]),
+        KEEPFILTERS(TREATAS(VALUES(DimTime[Shift]), FactDailyCapacity[Shift]))
+    )
+)
 
-Capacity Gap = [Incoming Reports] - [Available Capacity]
+Available Capacity = [Nominal Incident Capacity]
+
+// Explicit optional scenario. CapacityAllocation defaults to null; 0.12 has no
+// validated source basis. Never silently treat that historical scenario as fact.
+Capacity Allocation Factor = SELECTEDVALUE(CapacityAllocation[AllocationFactor])
+
+Effective Incident Capacity =
+VAR Factor = [Capacity Allocation Factor]
+RETURN IF(Factor > 0 && Factor <= 1, [Nominal Incident Capacity] * Factor)
+
+Capacity Utilization = DIVIDE([Incoming Reports], [Nominal Incident Capacity])
+
+Scenario Capacity Utilization = DIVIDE([Incoming Reports], [Effective Incident Capacity])
+
+Demand Capacity Ratio = [Capacity Utilization]
+
+Capacity Gap =
+IF(NOT ISBLANK([Nominal Incident Capacity]), [Incoming Reports] - [Nominal Incident Capacity])
+
+Team Availability Rate =
+IF(
+    [Capacity Context Supported],
+    DIVIDE(
+        CALCULATE(SUM(FactDailyCapacity[AvailableTeams]),
+            KEEPFILTERS(TREATAS(VALUES(DimTime[Shift]), FactDailyCapacity[Shift]))),
+        CALCULATE(SUM(FactDailyCapacity[PlannedTeams]),
+            KEEPFILTERS(TREATAS(VALUES(DimTime[Shift]), FactDailyCapacity[Shift])))
+    )
+)
+
+Avg Planned Teams =
+IF(
+    [Capacity Context Supported],
+    AVERAGEX(VALUES(DimDate[Date]),
+        CALCULATE(SUM(FactDailyCapacity[PlannedTeams]),
+            KEEPFILTERS(TREATAS(VALUES(DimTime[Shift]), FactDailyCapacity[Shift]))))
+)
+
+Avg Available Teams =
+IF(
+    [Capacity Context Supported],
+    AVERAGEX(VALUES(DimDate[Date]),
+        CALCULATE(SUM(FactDailyCapacity[AvailableTeams]),
+            KEEPFILTERS(TREATAS(VALUES(DimTime[Shift]), FactDailyCapacity[Shift]))))
+)
+
+// Existing illustrative index weights retained for transparency; not validated
+// operational thresholds. Capacity now uses the documented nominal denominator.
 
 Pressure Score =
 VAR DemandScore = MIN(100, [Demand Capacity Ratio] * 65)
 VAR RepeatScore = MIN(20, [Repeat Rate] * 150)
 VAR SLARiskScore = MIN(15, (1 - [SLA Compliance]) * 75)
-RETURN MIN(100, DemandScore + RepeatScore + SLARiskScore)
+RETURN IF(NOT ISBLANK([Demand Capacity Ratio]), MIN(100, DemandScore + RepeatScore + SLARiskScore))
 
 Pressure Band =
 SWITCH(
     TRUE(),
+    ISBLANK([Pressure Score]), BLANK(),
     [Pressure Score] >= 80, "Critical",
     [Pressure Score] >= 65, "High",
     [Pressure Score] >= 45, "Moderate",
@@ -78,14 +151,42 @@ CALCULATE(
 
 Central Evening Share = DIVIDE([Central Evening Reports], [Central Area Reports])
 
-Recommended Additional Teams =
-VAR Gap = MAX(0, [Capacity Gap])
-RETURN CEILING(DIVIDE(Gap, 4), 1)
+// A period-level incident gap / 4 yields team-shift equivalents, not a count of
+// additional unique teams. No roster/assignment model supports that recommendation.
+Recommended Additional Teams = BLANK()
 
 Operational Finding =
 VAR Area = SELECTEDVALUE(DimDistrict[DistrictEN], "Selected area")
-VAR Score = FORMAT([Pressure Score], "0")
-VAR Teams = FORMAT([Recommended Additional Teams], "0")
 RETURN
-    Area & " has a pressure score of " & Score & "/100. " &
-    "Consider reallocating " & Teams & " field team(s) during the selected period."
+    Area & ": review demand by shift, repeat locations and SLA outcomes. " &
+    "Nominal capacity is synthetic; a staffing recommendation requires validated allocation and productivity."
+
+// Explicit IncidentID filter transfer works even with disconnected predictions;
+// it avoids assuming an unverified embedded relationship/filter direction.
+// Risk band High (>= 0.40) is distinct from the validation-selected review threshold.
+Average Predicted Risk =
+CALCULATE(AVERAGE(incident_ai_predictions[PredictedBreachProbability]),
+    KEEPFILTERS(TREATAS(VALUES(FactIncidents[IncidentID]), incident_ai_predictions[IncidentID])))
+
+High Risk Reports =
+CALCULATE(COUNTROWS(incident_ai_predictions),
+    KEEPFILTERS(TREATAS(VALUES(FactIncidents[IncidentID]), incident_ai_predictions[IncidentID])),
+    KEEPFILTERS(incident_ai_predictions[RiskBand] = "High"))
+
+Open High Risk Reports =
+CALCULATE([High Risk Reports], KEEPFILTERS(FactIncidents[Status] = "Open"))
+
+In Progress High Risk Reports =
+CALCULATE([High Risk Reports], KEEPFILTERS(FactIncidents[Status] = "In Progress"))
+
+Active High Risk Reports = [Open High Risk Reports] + [In Progress High Risk Reports]
+
+Model Recall =
+CALCULATE(MAX(model_performance[Value]),
+    model_performance[Dataset] = "Test", model_performance[Metric] = "recall")
+
+Model ROC AUC =
+CALCULATE(MAX(model_performance[Value]),
+    model_performance[Dataset] = "Test", model_performance[Metric] = "roc_auc")
+
+Model Decision Threshold = MAX(ModelSettings[DecisionThreshold])
