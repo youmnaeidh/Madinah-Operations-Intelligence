@@ -103,6 +103,7 @@ visual dependencies to Average Assignment Delay Hours and correcting its label.
 | Project Info/static model performance | ROC-AUC **68.7020%** (68.7%), review threshold **24%**, AdaBoost unchanged. Describe cutoff-aware validation and remaining limitations. |
 | High Risk Reports | **3,371**, all 30,000 rows, including training records; not held-out performance. |
 | Average Predicted Risk | Refresh from the new incident-level scores. Format only; do not use old 30.1% text. |
+| Model Drivers / Team Capacity 41.8% | Refresh the importance exports. Staffing features are excluded from the corrected model; do not retain the old driver narrative. Preserve the existing chart design. |
 | High-Risk Priority Queue | Filter **Active High Risk Reports > 0**, retaining only Open or In Progress AND RiskBand High (probability >= 0.40). The binary review flag at 0.24 is a different concept. |
 | Response/assignment speed caption | Use **Assignment Delay Hours**, timestamp-derived; unfiltered average 0.3071824h. Keep the source ResponseHours column unchanged. |
 

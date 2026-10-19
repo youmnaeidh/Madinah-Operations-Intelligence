@@ -1,7 +1,7 @@
-"""Train and export a leakage-safe SLA breach risk model.
+"""Train and export an availability-aware synthetic SLA breach risk model.
 
 Uses scikit-learn Pipelines so preprocessing learned from the training period
-is applied consistently to validation, test, and open synthetic reports.
+is applied consistently to validation, test, and active synthetic reports.
 """
 
 from __future__ import annotations
