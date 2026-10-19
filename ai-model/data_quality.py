@@ -73,7 +73,7 @@ def validate_source_tables(tables):
         raise ValueError("DateKey disagrees with CreatedAt")
     if not created.dt.hour.eq(incidents.Hour).all():
         raise ValueError("Hour disagrees with CreatedAt")
-    if (incidents.SLATargetHours <= 0).any():
+    if not np.isfinite(incidents.SLATargetHours).all() or (incidents.SLATargetHours <= 0).any():
         raise ValueError("SLA target must be positive")
     duration = (resolved_at - created).dt.total_seconds() / 3600
     if (abs(duration[resolved] - incidents.loc[resolved, "ResolutionHours"]) > .0051).any():
