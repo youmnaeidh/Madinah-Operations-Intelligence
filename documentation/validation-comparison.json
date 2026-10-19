@@ -1,0 +1,299 @@
+{
+  "baseline_commit": "ed3ab0aeea07fdc21623fd761c6dce376fda2105",
+  "legacy": {
+    "project_type": "Portfolio prototype using synthetic data",
+    "framework": "scikit-learn Pipeline with ColumnTransformer preprocessing",
+    "prediction_target": "SLA breach before incident resolution",
+    "selected_model": "AdaBoost Decision Stumps",
+    "decision_threshold": 0.27,
+    "risk_band_thresholds": {
+      "Low": "probability < 0.25",
+      "Moderate": "0.25 <= probability < 0.40",
+      "High": "probability >= 0.40"
+    },
+    "validation_roc_auc_comparison": {
+      "Logistic Regression": 0.6551,
+      "AdaBoost Decision Stumps": 0.6652
+    },
+    "test_metrics": {
+      "roc_auc": 0.6927,
+      "accuracy": 0.5628,
+      "precision": 0.3664,
+      "recall": 0.7657,
+      "specificity": 0.4837,
+      "f1": 0.4956,
+      "brier_score": 0.1841,
+      "true_positive": 1301,
+      "true_negative": 2108,
+      "false_positive": 2250,
+      "false_negative": 398
+    },
+    "time_split": {
+      "training": "2025-10-05 to 2026-01-31",
+      "validation": "2026-02-01 to 2026-02-28",
+      "testing": "2026-03-01 to 2026-04-05"
+    },
+    "row_counts": {
+      "training": 18812,
+      "validation": 4864,
+      "testing": 6057,
+      "open_scored": 267,
+      "all_scored": 30000
+    },
+    "test_breach_rate": 0.2805,
+    "high_risk_count_all_rows": 4074,
+    "leakage_exclusions": [
+      "AssignedAt",
+      "ResolvedAt",
+      "ResponseHours",
+      "ResolutionHours",
+      "SLAMet",
+      "Status as a feature",
+      "WasReopened",
+      "SatisfactionScore"
+    ],
+    "limitations": [
+      "All source records are synthetic.",
+      "Only six months of history are available.",
+      "The model is a portfolio prototype, not a production municipal system.",
+      "Effective capacity uses a documented synthetic allocation assumption."
+    ]
+  },
+  "label_cutoff_only_with_unverified_capacity": {
+    "project_type": "Portfolio prototype using synthetic data",
+    "framework": "scikit-learn Pipeline with ColumnTransformer preprocessing",
+    "prediction_target": "SLA breach among reports resolved by the evaluation cutoff",
+    "selected_model": "AdaBoost Decision Stumps",
+    "decision_threshold": 0.26,
+    "risk_band_thresholds": {
+      "Low": "probability < 0.25",
+      "Moderate": "0.25 <= probability < 0.40",
+      "High": "probability >= 0.40"
+    },
+    "validation_roc_auc_comparison": {
+      "Logistic Regression": 0.6454995608473743,
+      "AdaBoost Decision Stumps": 0.655534109550187
+    },
+    "test_metrics": {
+      "roc_auc": 0.6924132139387124,
+      "accuracy": 0.5410269110120521,
+      "precision": 0.35666931848316097,
+      "recall": 0.7916421424367275,
+      "specificity": 0.44332262505736575,
+      "f1": 0.49177330895795246,
+      "brier_score": 0.18408677669343018,
+      "true_positive": 1345,
+      "true_negative": 1932,
+      "false_positive": 2426,
+      "false_negative": 354
+    },
+    "time_split": {
+      "training": "created and resolved before 2026-02-01",
+      "validation": "created in February; resolved before 2026-03-01",
+      "testing": "created 2026-03-01 through 2026-04-05; resolved before 2026-04-06"
+    },
+    "row_counts": {
+      "training": 18548,
+      "validation": 4483,
+      "testing": 6057,
+      "active_scored": 267,
+      "label_unavailable_at_cutoff": 645,
+      "all_scored": 30000
+    },
+    "test_breach_rate": 0.2805,
+    "high_risk_count_all_rows": 4000,
+    "high_risk_count_open": 1,
+    "high_risk_count_in_progress": 52,
+    "high_risk_count_active": 53,
+    "leakage_exclusions": [
+      "AssignedAt",
+      "ResolvedAt",
+      "ResponseHours",
+      "AssignmentDelayHours",
+      "ResolutionHours",
+      "SLAMet",
+      "Status as a feature",
+      "WasReopened",
+      "SatisfactionScore"
+    ],
+    "limitations": [
+      "All source records are synthetic.",
+      "Only six months of history are available.",
+      "The model is a portfolio prototype, not a production municipal system.",
+      "Evaluation is conditional on resolution by each cutoff; active cases are right-censored.",
+      "Historical test outcomes have already been inspected; this is a retrospective correction, not a new untouched holdout.",
+      "Static synthetic attributes and repeat flags lack live event/version logs.",
+      "Daily staffing aggregates are unverified at incident creation; diagnostic capacity runs must not be presented as leakage-safe.",
+      "The legacy 0.12 capacity allocation has no validated source justification."
+    ],
+    "include_unverified_capacity": true,
+    "feature_columns": [
+      "DistrictKey",
+      "Sector",
+      "CategoryKey",
+      "Subcategory",
+      "ChannelKey",
+      "Priority",
+      "Shift",
+      "TimeBand",
+      "Month",
+      "SLATargetHours",
+      "DemandWeight",
+      "Complexity",
+      "PlannedTeams",
+      "AvailableTeams",
+      "IncidentCapacity",
+      "AvailabilityRatio",
+      "IsWeekend",
+      "IsRepeatNumeric",
+      "HourSin",
+      "HourCos",
+      "DaySin",
+      "DayCos"
+    ],
+    "source_sha256": {
+      "DimCategory.csv": "588c0add726ac186bfd160fd6709c7e7dfd7015bc3dd244a9dcbb698c0074406",
+      "DimChannel.csv": "3c087cd519089c5704220d66e9c6294f05c6869d221a6528a51f88a6ac9735f4",
+      "DimDate.csv": "e6f6c1a5737886d999fda9178f0feb201cde7d14c32f21b615ad4c3db47d4e11",
+      "DimDistrict.csv": "4bb04d2466d3c8297ccbea9797a659145b485dc32f8e231c733f27ae4bab1b83",
+      "DimTeam.csv": "e5e9364fbc3a7570978c95f3ae941353b3156db38b809eed82cdae3765d03a0b",
+      "DimTime.csv": "9a50976ca4806a01e1bc2500638b6dcd532962f77de51b2b06b293c23d750adf",
+      "FactDailyCapacity.csv": "051e80c8e943ff10128c72404731ee62eeb54efbe956d7b0c219b92be782f198",
+      "FactIncidents.csv": "b2c6396bdda20a60d7fb44af83e75cb02ab5be493ab12310d8d718007d2242f8"
+    },
+    "runtime": {
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3"
+    },
+    "seed": 42,
+    "precision_policy": "Binary64 probabilities exported with 17 significant digits; no rounding before decisions"
+  },
+  "final_without_unverified_capacity": {
+    "project_type": "Portfolio prototype using synthetic data",
+    "framework": "scikit-learn Pipeline with ColumnTransformer preprocessing",
+    "prediction_target": "SLA breach among reports resolved by the evaluation cutoff",
+    "selected_model": "AdaBoost Decision Stumps",
+    "decision_threshold": 0.24,
+    "risk_band_thresholds": {
+      "Low": "probability < 0.25",
+      "Moderate": "0.25 <= probability < 0.40",
+      "High": "probability >= 0.40"
+    },
+    "validation_roc_auc_comparison": {
+      "Logistic Regression": 0.6462082684498649,
+      "AdaBoost Decision Stumps": 0.6474534221685057
+    },
+    "test_metrics": {
+      "roc_auc": 0.6870204944679009,
+      "accuracy": 0.48637939574046557,
+      "precision": 0.33619489559164734,
+      "recall": 0.8528546203649205,
+      "specificity": 0.3435061955025241,
+      "f1": 0.4822765851223165,
+      "brier_score": 0.1852338850971604,
+      "true_positive": 1449,
+      "true_negative": 1497,
+      "false_positive": 2861,
+      "false_negative": 250
+    },
+    "time_split": {
+      "training": "created and resolved before 2026-02-01",
+      "validation": "created in February; resolved before 2026-03-01",
+      "testing": "created 2026-03-01 through 2026-04-05; resolved before 2026-04-06"
+    },
+    "row_counts": {
+      "training": 18548,
+      "validation": 4483,
+      "testing": 6057,
+      "active_scored": 267,
+      "label_unavailable_at_cutoff": 645,
+      "all_scored": 30000
+    },
+    "test_breach_rate": 0.2805,
+    "high_risk_count_all_rows": 3371,
+    "high_risk_count_open": 0,
+    "high_risk_count_in_progress": 39,
+    "high_risk_count_active": 39,
+    "leakage_exclusions": [
+      "AssignedAt",
+      "ResolvedAt",
+      "ResponseHours",
+      "AssignmentDelayHours",
+      "ResolutionHours",
+      "SLAMet",
+      "Status as a feature",
+      "WasReopened",
+      "SatisfactionScore"
+    ],
+    "limitations": [
+      "All source records are synthetic.",
+      "Only six months of history are available.",
+      "The model is a portfolio prototype, not a production municipal system.",
+      "Evaluation is conditional on resolution by each cutoff; active cases are right-censored.",
+      "Historical test outcomes have already been inspected; this is a retrospective correction, not a new untouched holdout.",
+      "Static synthetic attributes and repeat flags lack live event/version logs.",
+      "Daily staffing aggregates are unverified at incident creation; diagnostic capacity runs must not be presented as leakage-safe.",
+      "The legacy 0.12 capacity allocation has no validated source justification."
+    ],
+    "include_unverified_capacity": false,
+    "feature_columns": [
+      "DistrictKey",
+      "Sector",
+      "CategoryKey",
+      "Subcategory",
+      "ChannelKey",
+      "Priority",
+      "Shift",
+      "TimeBand",
+      "Month",
+      "SLATargetHours",
+      "DemandWeight",
+      "Complexity",
+      "IsWeekend",
+      "IsRepeatNumeric",
+      "HourSin",
+      "HourCos",
+      "DaySin",
+      "DayCos"
+    ],
+    "source_sha256": {
+      "DimCategory.csv": "588c0add726ac186bfd160fd6709c7e7dfd7015bc3dd244a9dcbb698c0074406",
+      "DimChannel.csv": "3c087cd519089c5704220d66e9c6294f05c6869d221a6528a51f88a6ac9735f4",
+      "DimDate.csv": "e6f6c1a5737886d999fda9178f0feb201cde7d14c32f21b615ad4c3db47d4e11",
+      "DimDistrict.csv": "4bb04d2466d3c8297ccbea9797a659145b485dc32f8e231c733f27ae4bab1b83",
+      "DimTeam.csv": "e5e9364fbc3a7570978c95f3ae941353b3156db38b809eed82cdae3765d03a0b",
+      "DimTime.csv": "9a50976ca4806a01e1bc2500638b6dcd532962f77de51b2b06b293c23d750adf",
+      "FactDailyCapacity.csv": "051e80c8e943ff10128c72404731ee62eeb54efbe956d7b0c219b92be782f198",
+      "FactIncidents.csv": "b2c6396bdda20a60d7fb44af83e75cb02ab5be493ab12310d8d718007d2242f8"
+    },
+    "runtime": {
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3"
+    },
+    "seed": 42,
+    "precision_policy": "Binary64 probabilities exported with 17 significant digits; no rounding before decisions"
+  },
+  "interpretation": [
+    "The same two classifier families, seed and validation selection rule are used.",
+    "645 resolved labels are excluded from their original cohorts because they were not available at that cohort cutoff.",
+    "Final model additionally excludes four staffing features lacking point-in-time availability evidence.",
+    "Test cohort is unchanged at 6057 resolved reports; it is a retrospective evaluation conditional on resolution.",
+    "Full-precision export is a separate numerical correction; it does not change a fitted model's decisions."
+  ],
+  "precision_only_investigation": {
+    "legacy_rethreshold_discrepancies": 77,
+    "raw_min_among_77": 0.2699536372243492,
+    "raw_max_among_77": 0.2699750533359859,
+    "exported_value_among_77": [
+      0.27
+    ],
+    "binary_decision_changes_with_lossless_export": 0,
+    "source_incident_records_changed": 0
+  }
+}

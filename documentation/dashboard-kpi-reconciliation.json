@@ -1,0 +1,122 @@
+{
+  "source_rows": 30000,
+  "status_counts": {
+    "Resolved": 29733,
+    "In Progress": 265,
+    "Open": 2
+  },
+  "active_reports": 267,
+  "sla_met_resolved": 21857,
+  "sla_breached_resolved": 7876,
+  "sla_compliance_resolved": 0.7351091379948206,
+  "median_resolution_hours": 28.28,
+  "repeat_reports": 2531,
+  "repeat_rate": 0.08436666666666667,
+  "average_assignment_delay_hours": 0.30718237962962963,
+  "median_assignment_delay_hours": 0.2611111111111111,
+  "response_hours_definition": "Unknown historical source field; excluded from assignment/response KPIs",
+  "nominal_incident_capacity": 356984,
+  "demand_over_nominal_capacity": 0.08403737982654685,
+  "observed_capacity_per_available_team_allocation": 4,
+  "capacity_fact_grain": "date/district/shift; allocations are not unique team headcounts",
+  "team_availability_rate": 0.9732812772640028,
+  "legacy_scenario_only": {
+    "allocation_factor": 0.12,
+    "validated": false,
+    "effective_capacity": 42838.08,
+    "demand_over_effective_capacity": 0.700311498554557
+  },
+  "high_risk_all_rows": 3371,
+  "high_risk_open": 0,
+  "high_risk_in_progress": 39,
+  "high_risk_active": 39,
+  "mean_risk_all_rows_including_training": 0.2879907483150329,
+  "by_district": [
+    {
+      "DistrictKey": 1,
+      "DistrictEN": "Central Area",
+      "reports": 6687,
+      "nominal_capacity": 43912,
+      "demand_over_nominal_capacity": 0.15228183640007287
+    },
+    {
+      "DistrictKey": 2,
+      "DistrictEN": "Quba",
+      "reports": 2484,
+      "nominal_capacity": 28464,
+      "demand_over_nominal_capacity": 0.0872681281618887
+    },
+    {
+      "DistrictKey": 3,
+      "DistrictEN": "Al Iskan",
+      "reports": 2365,
+      "nominal_capacity": 28212,
+      "demand_over_nominal_capacity": 0.08382957606692187
+    },
+    {
+      "DistrictKey": 4,
+      "DistrictEN": "Al Aziziyah",
+      "reports": 2574,
+      "nominal_capacity": 28828,
+      "demand_over_nominal_capacity": 0.08928819203552102
+    },
+    {
+      "DistrictKey": 5,
+      "DistrictEN": "Al Salam",
+      "reports": 2169,
+      "nominal_capacity": 28684,
+      "demand_over_nominal_capacity": 0.07561706874912844
+    },
+    {
+      "DistrictKey": 6,
+      "DistrictEN": "Uhud",
+      "reports": 2259,
+      "nominal_capacity": 28500,
+      "demand_over_nominal_capacity": 0.07926315789473684
+    },
+    {
+      "DistrictKey": 7,
+      "DistrictEN": "Bani Harithah",
+      "reports": 1849,
+      "nominal_capacity": 28376,
+      "demand_over_nominal_capacity": 0.06516069918240767
+    },
+    {
+      "DistrictKey": 8,
+      "DistrictEN": "Al Aridh",
+      "reports": 2185,
+      "nominal_capacity": 28452,
+      "demand_over_nominal_capacity": 0.07679600731055813
+    },
+    {
+      "DistrictKey": 9,
+      "DistrictEN": "Wadi Mahzur",
+      "reports": 2006,
+      "nominal_capacity": 28676,
+      "demand_over_nominal_capacity": 0.06995396847538012
+    },
+    {
+      "DistrictKey": 10,
+      "DistrictEN": "Bir Uthman",
+      "reports": 1778,
+      "nominal_capacity": 28432,
+      "demand_over_nominal_capacity": 0.06253517163759145
+    },
+    {
+      "DistrictKey": 11,
+      "DistrictEN": "Al Oyoun",
+      "reports": 1684,
+      "nominal_capacity": 28340,
+      "demand_over_nominal_capacity": 0.05942131263232181
+    },
+    {
+      "DistrictKey": 12,
+      "DistrictEN": "Al Jamawat",
+      "reports": 1960,
+      "nominal_capacity": 28108,
+      "demand_over_nominal_capacity": 0.06973103742706703
+    }
+  ],
+  "power_bi_desktop_verified": false,
+  "validation_scope": "Independent CSV aggregation; DAX/M execution and report refresh require Power BI Desktop"
+}

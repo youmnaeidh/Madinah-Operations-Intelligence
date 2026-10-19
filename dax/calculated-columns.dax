@@ -1,0 +1,9 @@
+// Calculated column in FactIncidents, not a measure. Apply only in Desktop.
+// Reassign the former Open legend's existing gold color (#C9A86A) to Active;
+// keep the chart's geometry, composition and all other colors unchanged.
+SLA Display Status =
+IF(
+    FactIncidents[Status] <> "Resolved",
+    "Active",
+    IF(FactIncidents[SLAMet], "Met", "Breached")
+)
