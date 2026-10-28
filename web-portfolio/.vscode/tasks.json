@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preview dashboard",
+      "type": "shell",
+      "command": "node server.mjs",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "Validate Power BI parity",
+      "type": "shell",
+      "command": "node test_engine.mjs",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

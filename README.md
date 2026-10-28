@@ -6,14 +6,21 @@ An end-to-end portfolio case study inspired by my internship experience at the M
 
 > **Project scope:** Independent portfolio prototype using synthetic data. It is not an official Municipality product and has not been production-deployed.
 
-> **Technical remediation:** The Python model, CSV exports, documented DAX and
-> portable Power Query templates have been corrected. The existing PBIX,
-> screenshots and PDFs remain unchanged historical exports and still contain
-> older labels/metrics. Power BI Desktop refresh and verification remain pending;
-> follow the [Desktop handoff](documentation/POWER-BI-DESKTOP.md). The original map,
-> mountains, background image, colors and page composition are preserved.
+> **Web portfolio — 28 October 2026:** A custom Arabic / English dashboard is
+> available in [web-portfolio](web-portfolio/README.md), with source code,
+> reproducible Power BI parity checks and static hosting output in `docs/`.
+> [Open the website](https://youmnaeidh.github.io/Madinah-Operations-Intelligence/).
+> It is an independent synthetic-data demonstration, not a live municipal system.
 
-![Executive overview](screenshots/01-overview.png)
+> **Desktop delivery — 24 October 2026:** Power BI refresh and verification are
+> complete. Current [PBIX](web-portfolio/dist/downloads/madinah-operations.pbix),
+> [dashboard PDF](web-portfolio/dist/downloads/dashboard.pdf) and
+> [case study](web-portfolio/dist/downloads/case-study.pdf) are bundled with the web
+> portfolio. The original map, mountains, backgrounds, colors and Power BI layout
+> are preserved. Older exports elsewhere in this repository are historical.
+> PR #1 and the backup branch remain untouched.
+
+![Interactive web overview](web-portfolio/screenshots/overview-en.png)
 
 ## Recruiter snapshot
 
@@ -37,7 +44,7 @@ The project explores:
 The Power BI report contains four connected pages:
 
 1. **Overview** — Executive KPIs, district pressure, hourly demand, service categories, SLA status, and an operational finding.
-2. **Operations** — Demand versus effective capacity, utilization, team availability, shift-level SLA performance, and operational priorities.
+2. **Operations** — Demand versus nominal capacity, team availability, shift-level SLA performance, and operational priorities.
 3. **AI Insights** — Predicted SLA-breach risk, risk distribution, model drivers, recommendation logic, and a high-risk review queue.
 4. **Project Info** — Business context, architecture, methodology, model performance, limitations, and governance.
 

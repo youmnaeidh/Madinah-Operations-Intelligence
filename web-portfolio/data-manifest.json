@@ -1,0 +1,12 @@
+{
+  "sourceFiles": {
+    "data\\FactIncidents.csv": "b2c6396bdda20a60d7fb44af83e75cb02ab5be493ab12310d8d718007d2242f8",
+    "data\\FactDailyCapacity.csv": "051e80c8e943ff10128c72404731ee62eeb54efbe956d7b0c219b92be782f198",
+    "ai-model\\incident_ai_predictions.csv": "4b500db5c7ac2172c724690aec52b6fe22e4d179fbdd3a6b1c80aec29ace41eb",
+    "output\\Madinah Operations Intelligence - Updated.pbix": "346229fe66aeb467c5768302262f8c6ae1a4d71c71df8e43f50f92a738827efc"
+  },
+  "mapSha256": "15ff3993c2af6d7eb9bf001ac52c2eff11b8a460a88d419c04f9505098fcf432",
+  "rows": 30000,
+  "capacityRows": 6588,
+  "dataBytes": 6373708
+}

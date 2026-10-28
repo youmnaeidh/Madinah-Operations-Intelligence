@@ -1,0 +1,15 @@
+{
+  "name": "madinah-operations-intelligence-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Bilingual municipal operations portfolio using verified synthetic data",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node test_engine.mjs",
+    "check": "node --check dist/app.mjs && node --check dist/engine.mjs && node --check server.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

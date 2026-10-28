@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": 93007,
+  "incidents": 30000,
+  "grainContexts": 6588,
+  "filterContexts": 14,
+  "priorityQueue": 39,
+  "predictionsCompared": 30000,
+  "predictionComparison": "exact binary64",
+  "aggregateTolerance": 1e-10,
+  "checkedAt": "2026-10-28T06:59:01.383Z",
+  "baseline": "Power BI reopened verification, 2026-10-24",
+  "sourceFilesUnchanged": "not requested; use --check-source in original workspace",
+  "mapUnchanged": true
+}

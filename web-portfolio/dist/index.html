@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#081b18" />
+    <meta
+      name="description"
+      content="Madinah Operations Intelligence — an interactive bilingual portfolio exploring synthetic municipal operations, SLA performance and responsible risk prioritization."
+    />
+    <title>Madinah Operations Intelligence</title>
+    <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main"
+      >Skip to dashboard / انتقل إلى لوحة المعلومات</a
+    >
+    <div id="app">
+      <div class="boot">
+        <img src="./assets/mark.svg" width="56" height="56" alt="" />
+        <h1>Madinah Operations Intelligence</h1>
+        <p role="status">
+          Loading verified data · جارٍ تحميل البيانات المتحققة
+        </p>
+      </div>
+    </div>
+    <div id="overlay-root"></div>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./app.mjs?v=1"></script>
+  </body>
+</html>
