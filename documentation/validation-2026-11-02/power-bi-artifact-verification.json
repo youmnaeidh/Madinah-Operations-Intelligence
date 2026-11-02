@@ -1,0 +1,39 @@
+{
+  "pages": 4,
+  "visual_containers": 119,
+  "geometry_and_visual_types_preserved": true,
+  "protected_resource_sha256": {
+    "Report/StaticResources/RegisteredResources/filter-teal-icon41247032048501986.svg": "3a6b423d490c14cfd175786c93a181a34fdedb6b6cadfe29416d14443c02c571",
+    "Report/StaticResources/RegisteredResources/filter-teal-icon5104295607534359.svg": "3a6b423d490c14cfd175786c93a181a34fdedb6b6cadfe29416d14443c02c571",
+    "Report/StaticResources/RegisteredResources/filter-teal-icon7070915177932221.svg": "3a6b423d490c14cfd175786c93a181a34fdedb6b6cadfe29416d14443c02c571",
+    "Report/StaticResources/RegisteredResources/kpi-ai-high-risk.svg": "5cfeb5a9de2de15a8534f35befee43ed14aee302d5ba4277366229c9ecbf982f",
+    "Report/StaticResources/RegisteredResources/kpi-ai-open-risk.svg": "d272cf109096230b59ebc1f1576ff1f7c0c021565b56759eace1e97358468c06",
+    "Report/StaticResources/RegisteredResources/kpi-ai-recall.svg": "b57c9c4cd339a15164614d21d11bee491d53b7f7f46448316afeba40048d29c3",
+    "Report/StaticResources/RegisteredResources/kpi-ai-risk.svg": "6a1e9d80cd5f0ad1fdcd99600234910ddfc1bad89361636eb8f6cf1db41bb7a7",
+    "Report/StaticResources/RegisteredResources/kpi-operations-capacity.svg": "a99d6a8c882ac6515ff04854855a79f17c97cfb192e7cd0afa93d2d1024ad520",
+    "Report/StaticResources/RegisteredResources/kpi-operations-open.svg": "2109c52eb5024a5116d44c0dab53ebd5a00d696d6728553aa4130120cc1eeed1",
+    "Report/StaticResources/RegisteredResources/kpi-operations-teams.svg": "b46d6e26dc5a04db103a8f2c4b59b3916b2e9d19fc09374be5d06cc2516228b7",
+    "Report/StaticResources/RegisteredResources/kpi-operations-utilization.svg": "6dfd500885201a0c5405528597712faaef4b10643402aa28e3d5fd8d0d61454c",
+    "Report/StaticResources/RegisteredResources/kpi-overview-repeat.svg": "108b14fb60567413be9b658425bb41522dbe01159edc5753f5ca97b3459b6435",
+    "Report/StaticResources/RegisteredResources/kpi-overview-reports.svg": "75930d56c63c793380811ac3c8a50de2753f564a24432313c0cf9dd666fa65c8",
+    "Report/StaticResources/RegisteredResources/kpi-overview-resolution.svg": "9abb749069f0238790471ced158d52e16b192436be7f1a848633afa7b8766e1b",
+    "Report/StaticResources/RegisteredResources/kpi-overview-sla.svg": "c4c2e369e6be8b9f64c0888907d9622e5a551f4e881dbd33bf233f50c86cb30d",
+    "Report/StaticResources/RegisteredResources/madinah-offline-map-background3099319291464473.png": "15ff3993c2af6d7eb9bf001ac52c2eff11b8a460a88d419c04f9505098fcf432",
+    "Report/StaticResources/RegisteredResources/Madinah_Operations_Intelligenc5976664607559632.json": "72c55c89fe7250fd6185bfb55c8a54a1fbde9deb0184171e9a57c3dcabab4d6c",
+    "Report/StaticResources/RegisteredResources/moi-sidebar-ai-gold5997345934862071.svg": "8b1b138fcac52b4a40a78c0f3668dceea87a1ab2a6e41cbbb80b4ba0aa047115",
+    "Report/StaticResources/RegisteredResources/moi-sidebar-gold3253092103165315.svg": "247c7e5fe12e8fdd73cb750be01066ade3468d244275430e5cbbe4c6a968250f",
+    "Report/StaticResources/RegisteredResources/moi-sidebar-operations-gold32425523479971996.svg": "805c3e455a84b12df19246f0225471b2c256e97f286cc93732a3a5671e43a7a8",
+    "Report/StaticResources/RegisteredResources/moi-sidebar-project-gold8877161905912305.svg": "bbf0f65b9891bdda09cd444d03a956c674909074d262252a0984e6c16053d040",
+    "Report/StaticResources/SharedResources/BaseThemes/CY26SU07.json": "cbd7ee57cd74dfd24cab269d2c8d0b0f52f05d4e1f4d465566647f8fdd095042"
+  },
+  "information_overlay_updated": [
+    "Report/StaticResources/RegisteredResources/project-info-content07752230458051868.svg"
+  ],
+  "json_reserialized_without_semantic_changes": [
+    "Report/StaticResources/RegisteredResources/Madinah_Operations_Intelligenc5976664607559632.json",
+    "Report/StaticResources/SharedResources/BaseThemes/CY26SU07.json"
+  ],
+  "original_pbix_sha256": "6bb9964b4f9978c1bf0d8f9e142dd76a17fb6d6b3f31b37497c97307500a524d",
+  "corrected_pbix_sha256": "b551503dbb1273e273eebdf35d3fd5308d29494c4573e803996ef7e3f6391922",
+  "scope": "Saved archive, visual geometry and protected resource bytes; engine verification is separately recorded in desktop-validation.json"
+}

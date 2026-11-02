@@ -1,0 +1,23 @@
+test_portable_query_schemas_match_every_csv (test_dashboard.DashboardReconciliationTests.test_portable_query_schemas_match_every_csv) ... ok
+test_status_capacity_and_sla_denominators (test_dashboard.DashboardReconciliationTests.test_status_capacity_and_sla_denominators) ... ok
+test_assignment_delay_uses_timestamps_and_preserves_response (test_data_quality.SourceQualityTests.test_assignment_delay_uses_timestamps_and_preserves_response) ... ok
+test_calendar_key_disagreement_rejected (test_data_quality.SourceQualityTests.test_calendar_key_disagreement_rejected) ... ok
+test_duplicate_dimension_rejected_before_join (test_data_quality.SourceQualityTests.test_duplicate_dimension_rejected_before_join) ... ok
+test_historical_data_and_visual_assets_unchanged (test_data_quality.SourceQualityTests.test_historical_data_and_visual_assets_unchanged) ... ok
+test_invalid_label_and_timestamp_rejected (test_data_quality.SourceQualityTests.test_invalid_label_and_timestamp_rejected) ... ok
+test_missing_capacity_rejected (test_data_quality.SourceQualityTests.test_missing_capacity_rejected) ... ok
+test_missing_hour_and_wrong_shift_rejected (test_data_quality.SourceQualityTests.test_missing_hour_and_wrong_shift_rejected) ... ok
+test_flags_and_bands_from_persisted_full_precision_scores (test_exports.PersistedExportTests.test_flags_and_bands_from_persisted_full_precision_scores) ... ok
+test_source_population_and_risk_counts_reconcile (test_exports.PersistedExportTests.test_source_population_and_risk_counts_reconcile) ... ok
+test_test_metrics_recomputed_from_persisted_predictions (test_exports.PersistedExportTests.test_test_metrics_recomputed_from_persisted_predictions) ... ok
+test_committed_outputs_and_operating_cost (test_independent_validation.IndependentValidationTests.test_committed_outputs_and_operating_cost) ... ok
+test_intervals_have_sensible_edges (test_independent_validation.IndependentValidationTests.test_intervals_have_sensible_edges) ... ok
+test_export_roundtrips_adjacent_float_threshold_boundaries (test_model.ModelContractTests.test_export_roundtrips_adjacent_float_threshold_boundaries) ... ok
+test_labels_resolved_at_or_after_decision_cutoff_are_purged (test_model.ModelContractTests.test_labels_resolved_at_or_after_decision_cutoff_are_purged) ... ok
+test_preprocessor_is_fitted_on_training_data_only (test_model.ModelContractTests.test_preprocessor_is_fitted_on_training_data_only) ... ok
+test_source_splits_and_feature_availability_contract (test_model.ModelContractTests.test_source_splits_and_feature_availability_contract) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 20.175s
+
+OK

@@ -99,3 +99,8 @@ Daily capacity remains nominal synthetic capacity; the historical 0.12 allocatio
 factor has no validated source basis and is not a model feature or a validated
 staffing recommendation. The PBIX and PDF exports have not been refreshed in
 Power BI Desktop; follow the Desktop handoff before presenting their metrics.
+# Verification update — 2 November 2026
+
+Independent Windows retraining reproduced the persisted predictions and evaluation metrics within strict numerical tolerances. All 30,000 exported scores exactly match the fitted pipeline from that rerun. Eighteen Python tests passed. The corrected report was refreshed in Power BI Desktop 2.159.883.0 and passed 47 DAX engine checks; those are separate from Python/CI verification.
+
+Individual tree importance shifted by 0.005327912 between the collinear `DistrictKey_1` and `Sector_Central` inputs on Windows. Grouped importance, predictions and model metrics remained consistent. Do not describe cross-platform attribution as byte-identical or causal. See [independent evidence](../documentation/validation-2026-11-02/independent-validation.json) and [the dated report](../documentation/VALIDATION-2026-11-02-AR.md).

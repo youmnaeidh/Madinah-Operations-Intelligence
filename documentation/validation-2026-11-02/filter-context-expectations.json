@@ -1,0 +1,237 @@
+[
+  {
+    "Test": "All reports",
+    "Expression": "[Incoming Reports]",
+    "Expected": 30000
+  },
+  {
+    "Test": "Resolved",
+    "Expression": "[Resolved Reports]",
+    "Expected": 29733
+  },
+  {
+    "Test": "Strict Open",
+    "Expression": "[Open Reports]",
+    "Expected": 2
+  },
+  {
+    "Test": "In Progress",
+    "Expression": "[In Progress Reports]",
+    "Expected": 265
+  },
+  {
+    "Test": "Active",
+    "Expression": "[Active Reports]",
+    "Expected": 267
+  },
+  {
+    "Test": "High risk",
+    "Expression": "[High Risk Reports]",
+    "Expected": 3371
+  },
+  {
+    "Test": "Open high risk",
+    "Expression": "[Open High Risk Reports]",
+    "Expected": 0
+  },
+  {
+    "Test": "Active high risk",
+    "Expression": "[Active High Risk Reports]",
+    "Expected": 39
+  },
+  {
+    "Test": "Nominal capacity",
+    "Expression": "[Nominal Incident Capacity]",
+    "Expected": 356984
+  },
+  {
+    "Test": "Recall",
+    "Expression": "[Model Recall]",
+    "Expected": 0.8528546203649205
+  },
+  {
+    "Test": "Precision",
+    "Expression": "[Model Precision]",
+    "Expected": 0.33619489559164734
+  },
+  {
+    "Test": "ROC AUC",
+    "Expression": "[Model ROC AUC]",
+    "Expected": 0.6870204944679009
+  },
+  {
+    "Test": "Review threshold",
+    "Expression": "[Model Decision Threshold]",
+    "Expected": 0.24
+  },
+  {
+    "Test": "SLA resolved denominator",
+    "Expression": "[SLA Compliance]",
+    "Expected": 0.7351091379948206
+  },
+  {
+    "Test": "Mean model score",
+    "Expression": "[Average Predicted Risk]",
+    "Expected": 0.2879907483150329
+  },
+  {
+    "Test": "Unvalidated scenario is blank",
+    "Expression": "[Effective Incident Capacity]",
+    "Expected": null
+  },
+  {
+    "Test": "DimShift Morning reports",
+    "Expression": "CALCULATE([Incoming Reports], DimShift[Shift] = \"Morning\")",
+    "Expected": 10190
+  },
+  {
+    "Test": "DimShift Morning capacity",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimShift[Shift] = \"Morning\")",
+    "Expected": 125240
+  },
+  {
+    "Test": "DimTime Morning reports",
+    "Expression": "CALCULATE([Incoming Reports], DimTime[Shift] = \"Morning\")",
+    "Expected": 10190
+  },
+  {
+    "Test": "DimTime Morning capacity",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimTime[Shift] = \"Morning\")",
+    "Expected": 125240
+  },
+  {
+    "Test": "Morning active high risk",
+    "Expression": "CALCULATE([Active High Risk Reports], DimShift[Shift] = \"Morning\")",
+    "Expected": 3
+  },
+  {
+    "Test": "DimShift Evening reports",
+    "Expression": "CALCULATE([Incoming Reports], DimShift[Shift] = \"Evening\")",
+    "Expected": 13937
+  },
+  {
+    "Test": "DimShift Evening capacity",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimShift[Shift] = \"Evening\")",
+    "Expected": 159784
+  },
+  {
+    "Test": "DimTime Evening reports",
+    "Expression": "CALCULATE([Incoming Reports], DimTime[Shift] = \"Evening\")",
+    "Expected": 13937
+  },
+  {
+    "Test": "DimTime Evening capacity",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimTime[Shift] = \"Evening\")",
+    "Expected": 159784
+  },
+  {
+    "Test": "Evening active high risk",
+    "Expression": "CALCULATE([Active High Risk Reports], DimShift[Shift] = \"Evening\")",
+    "Expected": 32
+  },
+  {
+    "Test": "DimShift Night reports",
+    "Expression": "CALCULATE([Incoming Reports], DimShift[Shift] = \"Night\")",
+    "Expected": 5873
+  },
+  {
+    "Test": "DimShift Night capacity",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimShift[Shift] = \"Night\")",
+    "Expected": 71960
+  },
+  {
+    "Test": "DimTime Night reports",
+    "Expression": "CALCULATE([Incoming Reports], DimTime[Shift] = \"Night\")",
+    "Expected": 5873
+  },
+  {
+    "Test": "DimTime Night capacity",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimTime[Shift] = \"Night\")",
+    "Expected": 71960
+  },
+  {
+    "Test": "Night active high risk",
+    "Expression": "CALCULATE([Active High Risk Reports], DimShift[Shift] = \"Night\")",
+    "Expected": 4
+  },
+  {
+    "Test": "Central reports",
+    "Expression": "CALCULATE([Incoming Reports], DimDistrict[DistrictKey] = 1)",
+    "Expected": 6687
+  },
+  {
+    "Test": "Central capacity",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimDistrict[DistrictKey] = 1)",
+    "Expected": 43912
+  },
+  {
+    "Test": "Central Night capacity",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimDistrict[DistrictKey] = 1, DimShift[Shift] = \"Night\")",
+    "Expected": 10748
+  },
+  {
+    "Test": "April partial capacity",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimDate[DateKey] >= 20260401, DimDate[DateKey] <= 20260405)",
+    "Expected": 9820
+  },
+  {
+    "Test": "April partial reports",
+    "Expression": "CALCULATE([Incoming Reports], DimDate[DateKey] >= 20260401, DimDate[DateKey] <= 20260405)",
+    "Expected": 793
+  },
+  {
+    "Test": "Hour 6 reports",
+    "Expression": "CALCULATE([Incoming Reports], DimTime[Hour] = 6)",
+    "Expected": 811
+  },
+  {
+    "Test": "Hour unsupported",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimTime[Hour] = 6)",
+    "Expected": null
+  },
+  {
+    "Test": "TimeBand unsupported",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimTime[TimeBand] = \"Evening\")",
+    "Expected": null
+  },
+  {
+    "Test": "Category unsupported",
+    "Expression": "CALCULATE([Nominal Incident Capacity], DimCategory[CategoryKey] = 1)",
+    "Expected": null
+  },
+  {
+    "Test": "Status unsupported",
+    "Expression": "CALCULATE([Nominal Incident Capacity], FactIncidents[Status] = \"Open\")",
+    "Expected": null
+  },
+  {
+    "Test": "RiskBand unsupported",
+    "Expression": "CALCULATE([Nominal Incident Capacity], incident_ai_predictions[RiskBand] = \"High\")",
+    "Expected": null
+  },
+  {
+    "Test": "RiskBand does not backfilter incidents",
+    "Expression": "CALCULATE([Incoming Reports], incident_ai_predictions[RiskBand] = \"High\")",
+    "Expected": 30000
+  },
+  {
+    "Test": "Resolved excludes Open high risk",
+    "Expression": "CALCULATE([Open High Risk Reports], FactIncidents[Status] = \"Resolved\")",
+    "Expected": 0
+  },
+  {
+    "Test": "SLA false filter respected",
+    "Expression": "CALCULATE([SLA Compliance], FactIncidents[SLAMet] = FALSE())",
+    "Expected": 0
+  },
+  {
+    "Test": "Repeat false filter respected",
+    "Expression": "CALCULATE([Repeat Reports], FactIncidents[IsRepeat] = FALSE())",
+    "Expected": 0
+  },
+  {
+    "Test": "Heldout recall not district-specific",
+    "Expression": "CALCULATE([Model Recall], DimDistrict[DistrictKey] = 1)",
+    "Expected": 0.8528546203649205
+  }
+]

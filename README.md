@@ -6,14 +6,20 @@ An end-to-end portfolio case study inspired by my internship experience at the M
 
 > **Project scope:** Independent portfolio prototype using synthetic data. It is not an official Municipality product and has not been production-deployed.
 
-> **Technical remediation:** The Python model, CSV exports, documented DAX and
-> portable Power Query templates have been corrected. The existing PBIX,
-> screenshots and PDFs remain unchanged historical exports and still contain
-> older labels/metrics. Power BI Desktop refresh and verification remain pending;
-> follow the [Desktop handoff](documentation/POWER-BI-DESKTOP.md). The original map,
-> mountains, background image, colors and page composition are preserved.
+> **Validated desktop snapshot — 2 November 2026:** Python tests, independent retraining, a real Power BI Desktop refresh, and 47 DAX engine checks were completed. The four-page design is preserved. Use the corrected deliverables below; the original PBIX, screenshots and PDFs remain historical files.
+>
+> **Display limitation:** The 8.4% card retains its historical `Capacity Utilization` caption. Its denominator is now the explicitly labelled nominal capacity; it is not measured field productivity. A subsequent caption-only editing candidate could not be opened and was not adopted.
 
-![Executive overview](screenshots/01-overview.png)
+## Corrected deliverables
+
+- [Power BI report](dashboard/MOI-Corrected-2026-11-02.pbix)
+- [Four-page dashboard PDF](documentation/MOI-Dashboard-Corrected-2026-11-02.pdf)
+- [Six-page case study](documentation/MOI-Case-Study-Corrected-2026-11-02.pdf)
+- [Validation report — Arabic](documentation/VALIDATION-2026-11-02-AR.md)
+- [Independent numerical results](documentation/validation-2026-11-02/independent-validation.json)
+- [Desktop checks and limitations](documentation/validation-2026-11-02/desktop-validation.json)
+
+![Executive overview](screenshots/corrected-2026-11-02/01-overview.png)
 
 ## Recruiter snapshot
 
@@ -37,7 +43,7 @@ The project explores:
 The Power BI report contains four connected pages:
 
 1. **Overview** — Executive KPIs, district pressure, hourly demand, service categories, SLA status, and an operational finding.
-2. **Operations** — Demand versus effective capacity, utilization, team availability, shift-level SLA performance, and operational priorities.
+2. **Operations** — Demand versus nominal capacity, utilization, team availability, shift-level SLA performance, and operational priorities.
 3. **AI Insights** — Predicted SLA-breach risk, risk distribution, model drivers, recommendation logic, and a high-risk review queue.
 4. **Project Info** — Business context, architecture, methodology, model performance, limitations, and governance.
 
@@ -108,7 +114,7 @@ documentation/   Historical PDFs, evidence, corrections and Desktop handoff
 
 From the repository root:
 
-The tested runtime is Python 3.12.14 with the exact versions in requirements.txt.
+The Windows validation runtime is Python 3.12.14 with the exact versions in requirements.txt.
 
 ```bash
 python -m pip install -r requirements.txt
@@ -140,20 +146,20 @@ the metadata seed and supplied tables survive; see [provenance](data/PROVENANCE.
 
 ## Dashboard previews
 
-These are preserved historical previews. Their older model/capacity/status
-labels are audited in the remediation report; they have not been re-exported.
+These previews were rendered from the corrected four-page PDF exported by Power BI Desktop.
+The original historical previews remain in the parent screenshots folder.
 
 ### Operations and SLA performance
 
-![Operations page](screenshots/02-operations.png)
+![Operations page](screenshots/corrected-2026-11-02/02-operations.png)
 
 ### AI-assisted operational insights
 
-![AI Insights page](screenshots/03-ai-insights.png)
+![AI Insights page](screenshots/corrected-2026-11-02/03-ai-insights.png)
 
 ### Methodology and governance
 
-![Project Info page](screenshots/04-project-info.png)
+![Project Info page](screenshots/corrected-2026-11-02/04-project-info.png)
 
 ## Responsible use
 
@@ -171,3 +177,9 @@ Power BI · SQL · Python · Reporting · Performance · Operations Analytics
 
 - [LinkedIn](https://www.linkedin.com/in/yomna-alhejaili-0b3991216)
 - [GitHub](https://github.com/youmnaeidh)
+
+## Reproduction and CI scope
+
+The workflow `.github/workflows/technical-validation.yml` runs Python checks and independent retraining on Windows and Linux. It also verifies the saved PBIX page geometry and protected resource bytes; it does not launch Desktop in GitHub Actions. Real DAX engine checks are recorded separately in the Desktop evidence. See [the verification query](dax/filter-context-verification.dax).
+
+Cross-platform predictions, evaluation metrics, district summaries and grouped feature importance agree within strict numerical tolerances. Individual importance can shift between collinear inputs (`DistrictKey_1` and `Sector_Central`); this is explicitly recorded, not treated as byte-identical reproduction. Scores include training records when presented for all 30,000 incidents. Held-out performance is limited to the 6,057 resolved retrospective test cases. Feature timing and right censoring remain limitations.

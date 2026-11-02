@@ -1,5 +1,11 @@
 # Power BI Desktop handoff — preserve the existing design
 
+> **Current status, 2 November 2026:** A real Desktop refresh, 47 DAX engine checks, PBIX save and four-page PDF export have now been completed. Use `dashboard/MOI-Corrected-2026-11-02.pbix` and the dated corrected PDFs/screenshots. See [the current validation report](VALIDATION-2026-11-02-AR.md) and [Desktop evidence](validation-2026-11-02/desktop-validation.json). The ratio card still carries its historical caption; its corrected denominator is nominal capacity. A later caption-only candidate hit a Desktop/UI error and was not adopted.
+
+## Historical handoff — state at 19 October 2026
+
+The paragraphs below record the earlier environment and implementation checklist, not the current verification status. The original historical assets named below remain unchanged; corrected deliverables use separate dated names.
+
 The existing PBIX, four screenshots, both PDFs, and embedded visual resources
 are unchanged. The map, mountains, background image, colors, page composition,
 visual positions, and sizes must remain exactly as they are. This remediation
