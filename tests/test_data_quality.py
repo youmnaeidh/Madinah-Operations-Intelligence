@@ -45,6 +45,23 @@ class SourceQualityTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Missing.*capacity"):
             quality.validate_source_tables(tables)
 
+    def test_missing_hour_and_wrong_shift_rejected(self):
+        tables = dict(self.tables)
+        tables["DimTime"] = tables["DimTime"].iloc[1:]
+        with self.assertRaisesRegex(ValueError, "each hour"):
+            quality.validate_source_tables(tables)
+        tables["DimTime"] = self.tables["DimTime"].copy()
+        tables["DimTime"].loc[tables["DimTime"].Hour.eq(6), "Shift"] = "Morning"
+        with self.assertRaisesRegex(ValueError, "DimShift"):
+            quality.validate_source_tables(tables)
+
+    def test_calendar_key_disagreement_rejected(self):
+        tables = dict(self.tables)
+        tables["DimDate"] = tables["DimDate"].copy()
+        tables["DimDate"].loc[0, "DateKey"] = 20000101
+        with self.assertRaisesRegex(ValueError, "Date/DateKey"):
+            quality.validate_source_tables(tables)
+
     def test_invalid_label_and_timestamp_rejected(self):
         tables = dict(self.tables)
         tables["FactIncidents"] = tables["FactIncidents"].copy()

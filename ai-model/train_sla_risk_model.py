@@ -148,7 +148,7 @@ def risk_bands(probabilities):
 
 def write_predictions(predictions, path, threshold):
     """Export round-trip binary64 scores; formatting belongs in Power BI."""
-    predictions.to_csv(path, index=False, float_format="%.17g")
+    predictions.to_csv(path, index=False, float_format="%.17g", lineterminator="\n")
     reloaded = pd.read_csv(path, float_precision="round_trip")
     if not np.array_equal(reloaded.PredictedBreachProbability.to_numpy(),
                           predictions.PredictedBreachProbability.to_numpy()):
@@ -269,14 +269,14 @@ def main(output_dir=OUT_DIR, include_unverified_capacity=False):
              PredictedBreaches=("PredictedBreach", "sum"),
              ActualBreachRate=("ActualBreach", "mean"))
         .sort_values("AveragePredictedRisk", ascending=False))
-    district_summary.to_csv(output_dir / "district_ai_summary.csv", index=False, float_format="%.17g")
+    district_summary.to_csv(output_dir / "district_ai_summary.csv", index=False, float_format="%.17g", lineterminator="\n")
 
     importance = feature_importance_frame(selected_model)
-    importance.to_csv(output_dir / "feature_importance.csv", index=False)
+    importance.to_csv(output_dir / "feature_importance.csv", index=False, lineterminator="\n")
     grouped = importance.assign(FeatureGroup=importance["Feature"].map(feature_group))
     grouped = grouped.groupby("FeatureGroup", as_index=False)["Importance"].sum().sort_values("Importance", ascending=False)
     grouped["ImportanceShare"] = (grouped["Importance"] / grouped["Importance"].sum()).round(6)
-    grouped.to_csv(output_dir / "feature_group_importance.csv", index=False)
+    grouped.to_csv(output_dir / "feature_group_importance.csv", index=False, lineterminator="\n")
 
     metrics = {
         "project_type": "Portfolio prototype using synthetic data",
@@ -323,13 +323,13 @@ def main(output_dir=OUT_DIR, include_unverified_capacity=False):
         "precision_policy": "Binary64 probabilities exported with 17 significant digits; no rounding before decisions",
     }
     (output_dir / "model_metrics.json").write_text(
-        json.dumps(metrics, indent=2, ensure_ascii=False), encoding="utf-8")
+        json.dumps(metrics, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     rows = [{"Model": selected_name, "Dataset": "Test", "Metric": key, "Value": value}
             for key, value in test_metrics.items()
             if key not in {"true_positive", "true_negative", "false_positive", "false_negative"}]
     rows.extend({"Model": name, "Dataset": "Validation", "Metric": "roc_auc", "Value": value}
                 for name, value in validation_comparison.items())
-    pd.DataFrame(rows).to_csv(output_dir / "model_performance.csv", index=False)
+    pd.DataFrame(rows).to_csv(output_dir / "model_performance.csv", index=False, lineterminator="\n")
 
     joblib.dump({"pipeline": selected_model, "model_name": selected_name,
                  "decision_threshold": decision_threshold,

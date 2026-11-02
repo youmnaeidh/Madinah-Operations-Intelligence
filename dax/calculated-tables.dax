@@ -1,0 +1,11 @@
+// Existing calculated table recovered from Desktop on 2026-11-02.
+// Keep Shift sorted by ShiftSort. Do not create a second DimShift.
+DimShift =
+DATATABLE("Shift", STRING, "ShiftSort", INTEGER,
+    {{"Morning", 1}, {"Evening", 2}, {"Night", 3}})
+
+// Active single-direction paths:
+// DimShift -> DimTime (Shift) -> FactIncidents (Hour)
+// DimShift -> FactDailyCapacity (Shift)
+// Hours: Morning 07-14; Evening 15-22; Night 23-06, on the calendar DateKey.
+// Capacity is not recorded at hour or TimeBand grain.

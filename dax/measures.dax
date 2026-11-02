@@ -2,7 +2,7 @@
 // Relationships and required queries: documentation/POWER-BI-DESKTOP.md.
 // All measures respect the current report context unless stated otherwise.
 // Core volume: Open is a status; Active is the unresolved population.
-Incoming Reports = COUNTROWS(FactIncidents)
+Incoming Reports = COALESCE(COUNTROWS(FactIncidents), 0)
 
 Resolved Reports =
 CALCULATE([Incoming Reports], KEEPFILTERS(FactIncidents[Status] = "Resolved"))
@@ -19,7 +19,7 @@ Resolution Rate = DIVIDE([Resolved Reports], [Incoming Reports])
 
 // Service level and speed
 SLA Met Reports =
-CALCULATE([Resolved Reports], FactIncidents[SLAMet] = TRUE())
+CALCULATE([Resolved Reports], KEEPFILTERS(FactIncidents[SLAMet] = TRUE()))
 
 SLA Compliance = DIVIDE([SLA Met Reports], [Resolved Reports])
 
@@ -37,14 +37,18 @@ Median Assignment Delay Hours = MEDIAN(FactIncidents[AssignmentDelayHours])
 
 // Quality and recurrence
 Repeat Reports =
-CALCULATE([Incoming Reports], FactIncidents[IsRepeat] = TRUE())
+CALCULATE([Incoming Reports], KEEPFILTERS(FactIncidents[IsRepeat] = TRUE()))
 
 Repeat Rate = DIVIDE([Repeat Reports], [Incoming Reports])
 
 Reopened Reports =
-CALCULATE([Incoming Reports], FactIncidents[WasReopened] = TRUE())
+CALCULATE([Incoming Reports], KEEPFILTERS(FactIncidents[WasReopened] = TRUE()))
 
-Reopen Rate = DIVIDE([Reopened Reports], [Resolved Reports])
+Reopen Rate =
+DIVIDE(
+    CALCULATE([Reopened Reports], KEEPFILTERS(FactIncidents[Status] = "Resolved")),
+    [Resolved Reports]
+)
 
 Average Satisfaction = AVERAGE(FactIncidents[SatisfactionScore])
 
@@ -54,7 +58,8 @@ Average Satisfaction = AVERAGE(FactIncidents[SatisfactionScore])
 Capacity Context Supported =
 NOT (
     ISFILTERED(DimCategory) || ISFILTERED(DimChannel) || ISFILTERED(DimTeam) ||
-    ISFILTERED(DimTime[Hour]) || ISFILTERED(DimTime[TimeBand])
+    ISFILTERED(DimTime[Hour]) || ISFILTERED(DimTime[TimeBand]) ||
+    ISFILTERED(FactIncidents) || ISFILTERED(incident_ai_predictions)
 )
 
 Nominal Incident Capacity =
@@ -169,9 +174,13 @@ CALCULATE(AVERAGE(incident_ai_predictions[PredictedBreachProbability]),
     KEEPFILTERS(TREATAS(VALUES(FactIncidents[IncidentID]), incident_ai_predictions[IncidentID])))
 
 High Risk Reports =
-CALCULATE(COUNTROWS(incident_ai_predictions),
+COALESCE(CALCULATE(COUNTROWS(incident_ai_predictions),
     KEEPFILTERS(TREATAS(VALUES(FactIncidents[IncidentID]), incident_ai_predictions[IncidentID])),
-    KEEPFILTERS(incident_ai_predictions[RiskBand] = "High"))
+    KEEPFILTERS(incident_ai_predictions[RiskBand] = "High")), 0)
+
+// Exact card text avoids the original automatic display-unit rounding to 3K.
+// Numeric High Risk Reports remains the measure for calculations and charts.
+High Risk Reports Display = FORMAT([High Risk Reports], "#,0")
 
 Open High Risk Reports =
 CALCULATE([High Risk Reports], KEEPFILTERS(FactIncidents[Status] = "Open"))
@@ -190,3 +199,42 @@ CALCULATE(MAX(model_performance[Value]),
     model_performance[Dataset] = "Test", model_performance[Metric] = "roc_auc")
 
 Model Decision Threshold = MAX(ModelSettings[DecisionThreshold])
+
+// Model-wide metadata remains disconnected from operational slicers.
+Model Precision =
+CALCULATE(MAX(model_performance[Value]),
+    model_performance[Dataset] = "Test", model_performance[Metric] = "precision")
+
+// Compatibility name used by the original report; same nominal definition.
+Incident Capacity = [Nominal Incident Capacity]
+
+// A review prompt, not a causal or validated staffing recommendation.
+AI Recommendation =
+VAR Area = [Priority AI District]
+VAR Score = CALCULATE([Average Predicted Risk], KEEPFILTERS(DimDistrict[DistrictEN] = Area))
+VAR ActiveRisk = CALCULATE([Active High Risk Reports], KEEPFILTERS(DimDistrict[DistrictEN] = Area))
+RETURN
+IF([Incoming Reports] = 0, "No reports in the selected context.",
+    "Review district" & UNICHAR(10) & Area & UNICHAR(10) & UNICHAR(10) &
+    "Mean model score: " & FORMAT(Score, "0.0%") & UNICHAR(10) &
+    "Active high-risk reports: " & FORMAT(ActiveRisk, "0") & UNICHAR(10) & UNICHAR(10) &
+    "Review active cases and SLA outcomes." & UNICHAR(10) &
+    "Synthetic capacity does not establish staffing needs." & UNICHAR(10) &
+    "Human review required.")
+
+Priority AI District =
+VAR Ranked = ADDCOLUMNS(ALLSELECTED(DimDistrict[DistrictEN]), "Score", CALCULATE([Average Predicted Risk]))
+RETURN CONCATENATEX(TOPN(1, Ranked, [Score], DESC, DimDistrict[DistrictEN], ASC), DimDistrict[DistrictEN], "")
+
+Evening Share =
+DIVIDE(CALCULATE([Incoming Reports], KEEPFILTERS(DimTime[TimeBand] = "Evening")), [Incoming Reports])
+
+Operational Insight =
+VAR Area = SELECTEDVALUE(DimDistrict[DistrictEN], "All Districts")
+RETURN
+    "Finding" & UNICHAR(10) &
+    FORMAT([Evening Share], "0.0%") & " of selected reports in " & Area &
+    " occur in the evening time band (17-22)." & UNICHAR(10) & UNICHAR(10) &
+    "Repeat rate: " & FORMAT([Repeat Rate], "0.0%") & UNICHAR(10) & UNICHAR(10) &
+    "Review demand by shift and repeat locations." & UNICHAR(10) &
+    "Demand concentration alone does not establish operational pressure."

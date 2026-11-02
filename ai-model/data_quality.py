@@ -26,6 +26,18 @@ def validate_source_tables(tables):
     """Fail before fitting on broken grains, joins, timestamps or target labels."""
     incidents = tables["FactIncidents"]
     capacity = tables["FactDailyCapacity"]
+    times = tables["DimTime"]
+    if set(times.Hour) != set(range(24)) or len(times) != 24:
+        raise ValueError("DimTime must cover each hour 0 through 23 exactly once")
+    expected_shift = times.Hour.map(lambda h: "Morning" if 7 <= h <= 14 else
+                                   "Evening" if 15 <= h <= 22 else "Night")
+    if not times.Shift.eq(expected_shift).all() or times.TimeBand.isna().any():
+        raise ValueError("DimTime disagrees with the documented DimShift contract")
+    dates = pd.to_datetime(tables["DimDate"].Date, errors="raise")
+    if dates.isna().any() or dates.duplicated().any() or not dates.dt.strftime("%Y%m%d").astype(int).eq(tables["DimDate"].DateKey).all():
+        raise ValueError("DimDate Date/DateKey must be unique and consistent")
+    if len(dates) != (dates.max() - dates.min()).days + 1:
+        raise ValueError("DimDate must contain a contiguous daily calendar")
     keys = {
         "DimDistrict": "DistrictKey", "DimCategory": "CategoryKey",
         "DimChannel": "ChannelKey", "DimTeam": "TeamKey",

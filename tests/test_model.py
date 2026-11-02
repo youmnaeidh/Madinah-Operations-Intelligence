@@ -38,18 +38,20 @@ class ModelContractTests(unittest.TestCase):
         self.assertTrue(all(np.isfinite(features[numeric]).all()))
 
     def test_export_roundtrips_adjacent_float_threshold_boundaries(self):
-        probabilities = np.array([np.nextafter(.27, 0), .27, np.nextafter(.25, 0),
-                                  .25, np.nextafter(.4, 0), .4])
-        frame = pd.DataFrame({"PredictedBreachProbability": probabilities,
-                              "PredictedBreach": (probabilities >= .27).astype(int),
-                              "RiskBand": model.risk_bands(probabilities)})
-        with tempfile.TemporaryDirectory() as folder:
-            path = Path(folder) / "scores.csv"
-            model.write_predictions(frame, path, .27)
-            loaded = pd.read_csv(path, float_precision="round_trip")
-            np.testing.assert_array_equal(probabilities, loaded.PredictedBreachProbability)
-            self.assertEqual(loaded.PredictedBreach.tolist()[:2], [0, 1])
-            self.assertEqual(loaded.RiskBand.tolist()[2:], ["Low", "Moderate", "Moderate", "High"])
+        for threshold in [.24, .27]:
+            with self.subTest(threshold=threshold), tempfile.TemporaryDirectory() as folder:
+                probabilities = np.array([np.nextafter(threshold, 0), threshold,
+                                          np.nextafter(.25, 0), .25,
+                                          np.nextafter(.4, 0), .4])
+                frame = pd.DataFrame({"PredictedBreachProbability": probabilities,
+                                      "PredictedBreach": (probabilities >= threshold).astype(int),
+                                      "RiskBand": model.risk_bands(probabilities)})
+                path = Path(folder) / "scores.csv"
+                model.write_predictions(frame, path, threshold)
+                loaded = pd.read_csv(path, float_precision="round_trip")
+                np.testing.assert_array_equal(probabilities, loaded.PredictedBreachProbability)
+                self.assertEqual(loaded.PredictedBreach.tolist()[:2], [0, 1])
+                self.assertEqual(loaded.RiskBand.tolist()[2:], ["Low", "Moderate", "Moderate", "High"])
 
     def test_preprocessor_is_fitted_on_training_data_only(self):
         preprocessor = model.make_preprocessor(["category"], ["number"])

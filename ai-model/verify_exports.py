@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 
 from train_sla_risk_model import (OUT_DIR, ROOT, classification_metrics,
-                                prepare_data, risk_bands, temporal_masks)
+                                feature_importance_frame, prepare_data, risk_bands, temporal_masks)
 
 
 def verify(output_dir=OUT_DIR):
@@ -25,6 +25,9 @@ def verify(output_dir=OUT_DIR):
     score = predictions.PredictedBreachProbability.to_numpy()
     assert np.isfinite(score).all() and ((score >= 0) & (score <= 1)).all()
     np.testing.assert_array_equal(bundle["pipeline"].predict_proba(features)[:, 1], score)
+    persisted_importance = pd.read_csv(output_dir / "feature_importance.csv", float_precision="round_trip").set_index("Feature").sort_index()
+    fitted_importance = feature_importance_frame(bundle["pipeline"]).set_index("Feature").sort_index()
+    pd.testing.assert_frame_equal(persisted_importance, fitted_importance, rtol=0, atol=1e-15)
     threshold = metrics["decision_threshold"]
     assert threshold == bundle["decision_threshold"]
     np.testing.assert_array_equal(predictions.PredictedBreach, (score >= threshold).astype(int))

@@ -1,0 +1,32 @@
+name: Technical validation
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python -m compileall -q ai-model tests
+      - run: python ai-model/verify_power_bi_artifact.py
+      - run: python ai-model/train_sla_risk_model.py --output-dir validation-output
+      - run: python ai-model/verify_exports.py --output-dir validation-output
+      - run: python ai-model/validate_remediation.py --export-dir validation-output --reference-dir ai-model --output validation-output/independent-validation.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-${{ matrix.os }}
+          path: validation-output/*.json
