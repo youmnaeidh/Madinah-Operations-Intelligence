@@ -6,11 +6,12 @@
 
 The paragraphs below record the earlier environment and implementation checklist, not the current verification status. The original historical assets named below remain unchanged; corrected deliverables use separate dated names.
 
-The existing PBIX, four screenshots, both PDFs, and embedded visual resources
-are unchanged. The map, mountains, background image, colors, page composition,
-visual positions, and sizes must remain exactly as they are. This remediation
-provides source corrections and a manual Desktop handoff; **Power BI Desktop
-was not run**, and DAX/M execution, refresh and rendering are not verified here.
+At the handoff, the original PBIX, four screenshots, both PDFs, and embedded
+visual resources were unchanged. The map, mountains, background image, colors, page composition,
+visual positions, and sizes were required to remain intact. The initial
+remediation supplied source corrections and this manual checklist; Desktop,
+DAX/M execution, refresh and rendering had not yet been verified at that stage.
+Their subsequent completion is recorded in the current-status note above.
 
 The archived report is still a historical snapshot. Updating Python/CSV/DAX
 files does not update its imported data, embedded measures, static SVG/text
@@ -145,8 +146,8 @@ backgrounds, theme, colors, and geometry untouched.
   metrics, captions and information overlays may differ.
 - Re-export both PDFs and screenshots only after Desktop validation, preserving
   the original author's attribution. Record the Desktop version, refresh time,
-  tested filters and any warnings. None of these Desktop steps are claimed as
-  completed by the cloud remediation.
+  tested filters and any warnings. These were pending checklist items at the
+  historical handoff; the dated Desktop evidence records what was later executed.
 
 The PR must not be merged and main must not be edited without the owner's
 approval. The backup branch remains an immutable historical reference.

@@ -1,5 +1,11 @@
 # Technical remediation evidence — 19 October 2026
 
+> **Status update — 2 November 2026:** The subsequent Desktop refresh, 47 DAX
+> engine checks, saved corrected PBIX, and corrected PDF/screenshot exports are
+> complete. Use the dated deliverables in README.md and the
+> [current validation report](VALIDATION-2026-11-02-AR.md). This document records
+> the earlier remediation and its evidence; original assets remain historical.
+
 Repository: **youmnaeidh/Madinah-Operations-Intelligence**. Baseline commit:
 `ed3ab0aeea07fdc21623fd761c6dce376fda2105`. Dedicated branch:
 `remediation/technical-2026-10-19`, created from the verified latest main.
@@ -7,12 +13,13 @@ All publishing uses the connected GitHub integration in this original repository
 No separate Development repository is used. Main is not updated or merged, and
 `backup-before-remediation-2026-10-19` is never written.
 
-The corrections below are implemented in Python, derived CSV/JSON exports,
-documented DAX, portable M templates and tests. **The embedded PBIX has not been
-modified or refreshed.** DAX/M execution, overlay corrections, relationship
-checks and PDF/screenshot re-exports remain Power BI Desktop work. See the
-[exact handoff](POWER-BI-DESKTOP.md). Existing map, mountains, backgrounds,
-colors and composition remain byte-for-byte unchanged with the entire PBIX.
+The initial corrections below covered Python, derived CSV/JSON exports,
+documented DAX, portable M templates and tests. At that stage the embedded PBIX
+had not been modified or refreshed; DAX/M execution, overlay corrections,
+relationship checks and PDF/screenshot re-exports were handed off to Desktop.
+Those steps were subsequently completed in a separate corrected PBIX. The
+original PBIX and its map, mountains, backgrounds, colors and composition remain
+unchanged. See the [historical handoff and current status](POWER-BI-DESKTOP.md).
 
 ## 1. Preserve source data; correct assignment-delay semantics
 
@@ -74,7 +81,7 @@ are documented assumptions, not independently verified live feature snapshots.
 | False negative | 398 | 354 | 250 |
 
 AdaBoost is selected in every run. Higher recall comes with more false alerts,
-lower precision and slightly worse discrimination/calibration; do not imply
+lower precision, slightly lower ROC-AUC and a slightly higher Brier score; do not imply
 that every metric improved. Selection uses validation only and does not refit
 on validation/test outcomes. Exact results, candidate validation ROC-AUCs and
 row counts are in `validation-comparison.json`, `ai-model/model_metrics.json`
@@ -143,9 +150,9 @@ Accurate source KPIs stay accurate: SLA compliance = 21,857 / 29,733 = 73.5109%;
 median resolution = 28.28h; repeat rate = 2,531 / 30,000 = 8.4367%; team
 availability = 89,246 / 91,696 = 97.3281%. Unfiltered current average predicted
 risk is 28.7991%, including training rows; it is not held-out performance.
-Different PDF visual totals/filters must be checked in Desktop; no guessed
-filter explanation is used to force agreement. Independent source results are
-in `dashboard-kpi-reconciliation.json`.
+PDF visual totals/filters required Desktop verification; the subsequent dated
+validation records the tested contexts, including the Top 6 district display.
+Independent source results are in `dashboard-kpi-reconciliation.json`.
 
 ## 6. Documentation, dependencies and configuration audit
 
@@ -155,15 +162,15 @@ in `dashboard-kpi-reconciliation.json`.
 - **Model card and code comments:** corrected availability claims, cutoffs,
   metrics, censoring, score precision and the limits of synthetic data. Removed
   unconditional leakage-safe wording; retained useful pipeline explanations.
-- **Case Study PDF (6 pages):** text inspected using pypdf 6.10.0. Author and
+- **Original Case Study PDF (6 pages):** text inspected using pypdf 6.10.0. Author and
   project context remain useful. Page 4's effective-capacity/overload narrative
-  needs qualification; page 5's 69.3%, 76.6%, 27% and Open High-Risk 53 are
-  historical. Preserve the PDF as an archived export until Desktop/authoring
-  refresh, rather than deleting its attribution or presenting it as current.
-- **Dashboard PDF (4 pages):** text and PBIX layout inspected read-only. The
+  needed qualification; page 5's 69.3%, 76.6%, 27% and Open High-Risk 53 are
+  historical. The original PDF is preserved as an archived export; a corrected
+  six-page edition was produced on 2 November with the author's attribution.
+- **Original Dashboard PDF (4 pages):** text and PBIX layout inspected read-only. The
   Operations capacity labels and AI/Project Info metrics are stale relative to
-  corrected definitions. The entire PDF remains untouched; re-export only
-  after Desktop validation. Existing SLA 73.5%, median 28.3h and repeat 8.4%
+  corrected definitions. The original PDF remains untouched; the separate
+  corrected PDF was exported after Desktop validation. SLA 73.5%, median 28.3h and repeat 8.4%
   are supported by the immutable CSVs.
 - **Synthetic metadata:** preserve the recorded generation seed 20260405 and
   dates. Original generator/rules are absent. `data/PROVENANCE.md` separates
@@ -177,7 +184,7 @@ in `dashboard-kpi-reconciliation.json`.
   deployment configuration were introduced. No file was removed merely because
   it was old; obsolete metric definitions/claims were corrected in place.
 
-## 7. Executed evidence and remaining limits
+## 7. Historical execution evidence and subsequent verification
 
 - Before the first commit: **5 tests passed**, source/asset hashes and broken
   source-grain/label/timestamp checks.
@@ -188,17 +195,22 @@ in `dashboard-kpi-reconciliation.json`.
   independent KPI aggregation and static schema coverage for every CSV query.
 - Independent full reproduction re-ran the historical source from real Git
   history plus both corrected variants. Historical metrics match exactly; all
-  six final CSV/JSON exports match byte-for-byte. No source regeneration occurred.
+  six final CSV/JSON exports matched byte-for-byte in that original environment.
+  The later Windows reproduction matched scores and metrics numerically but
+  exposed a documented collinear-feature attribution difference; see the dated
+  validation report. No source regeneration occurred.
 - `git diff --check` passes. Source CSVs, generation metadata, original PBIX,
   screenshots and PDFs match the recorded SHA-256 manifest. Published Git tree
   verification also checks protected blobs against the baseline tree.
-- Direct shell GitHub access still fails because its proxy is unreachable.
-  Publishing through the connected GitHub tools succeeds and is verified per
-  commit. This is a network limitation, not a remaining test failure.
-- **Not executed:** Power BI Desktop, M runtime, DAX engine/filter-context tests,
-  embedded-model refresh, layout rendering, and refreshed PDF/screenshot export.
-  The handoff is required before claiming a corrected desktop report. There
-  are no remaining observed Python regression-test failures.
+- Direct shell GitHub access failed in the original environment because its
+  proxy was unreachable. Publishing through the connected GitHub tools succeeded
+  and was verified per commit.
+- **Deferred at the original stage, completed on 2 November:** Power BI Desktop
+  refresh, 47 DAX engine/filter-context checks, layout inspection, saved corrected
+  PBIX, and corrected PDF/screenshot exports. The separate
+  [Desktop evidence](validation-2026-11-02/desktop-validation.json) records the
+  successful checks and remaining scope limitations; Python/CI does not execute
+  the Power BI engine.
 
 The source/asset manifest records the exact immutable inputs. The baseline JSON
 records historical metrics, the 77 affected IDs, source observations and tested

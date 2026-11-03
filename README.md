@@ -8,7 +8,9 @@ An end-to-end portfolio case study inspired by my internship experience at the M
 
 > **Validated desktop snapshot — 2 November 2026:** Python tests, independent retraining, a real Power BI Desktop refresh, and 47 DAX engine checks were completed. The four-page design is preserved. Use the corrected deliverables below; the original PBIX, screenshots and PDFs remain historical files.
 >
-> **Display limitation:** The 8.4% card retains its historical `Capacity Utilization` caption. Its denominator is now the explicitly labelled nominal capacity; it is not measured field productivity. A subsequent caption-only editing candidate could not be opened and was not adopted.
+> **Display limitation:** The 8.4% card retains its historical `Capacity Utilization` caption. Its denominator is now the explicitly labelled nominal capacity; it is not measured field productivity. The caption correction still requires a successful Desktop edit and verified re-export; no unsuccessful editing candidate is included in the deliverables.
+
+> **CI follow-up:** [Windows and Ubuntu validation passed](https://github.com/youmnaeidh/Madinah-Operations-Intelligence/actions/runs/41517009145) after preserving source bytes during Git checkout. All 18 tests and 30,000 prediction checks passed on both platforms. See [final QA and the remaining caption task](documentation/RELEASE-QA.md).
 
 ## Corrected deliverables
 
@@ -43,7 +45,7 @@ The project explores:
 The Power BI report contains four connected pages:
 
 1. **Overview** — Executive KPIs, district pressure, hourly demand, service categories, SLA status, and an operational finding.
-2. **Operations** — Demand versus nominal capacity, utilization, team availability, shift-level SLA performance, and operational priorities.
+2. **Operations** — Demand versus nominal capacity, demand/capacity ratios, team availability, shift-level SLA performance, and operational priorities.
 3. **AI Insights** — Predicted SLA-breach risk, risk distribution, model drivers, recommendation logic, and a high-risk review queue.
 4. **Project Info** — Business context, architecture, methodology, model performance, limitations, and governance.
 

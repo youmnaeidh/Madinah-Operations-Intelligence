@@ -97,9 +97,10 @@ establish real municipal behavior. Only six months are available. The model is
 not externally validated, fairness-tested or deployed. Human review is required.
 Daily capacity remains nominal synthetic capacity; the historical 0.12 allocation
 factor has no validated source basis and is not a model feature or a validated
-staffing recommendation. The PBIX and PDF exports have not been refreshed in
-Power BI Desktop; follow the Desktop handoff before presenting their metrics.
-# Verification update — 2 November 2026
+staffing recommendation. The original PBIX and PDFs remain historical exports;
+use the dated corrected deliverables linked from README.md for current metrics.
+
+## Verification update — 2 November 2026
 
 Independent Windows retraining reproduced the persisted predictions and evaluation metrics within strict numerical tolerances. All 30,000 exported scores exactly match the fitted pipeline from that rerun. Eighteen Python tests passed. The corrected report was refreshed in Power BI Desktop 2.159.883.0 and passed 47 DAX engine checks; those are separate from Python/CI verification.
 

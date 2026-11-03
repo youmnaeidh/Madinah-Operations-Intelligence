@@ -35,7 +35,7 @@ Observed facts (not claims about original generation rules):
   date/district/shift records. This is a source relationship, not evidence of
   real productivity. `DimTeam.NominalDailyCapacity` is a separate team-level
   reference; the capacity fact is not a roster of those 48 unique teams.
-- The dashboard's displayed 42.84K effective capacity is consistent with
+- The historical dashboard's displayed 42.84K effective capacity is consistent with
   `356984 * 0.12 = 42838.08`. No source records or metadata justify this
   allocation factor. Treat 12% only as an unvalidated historical scenario.
 - Timestamps have no timezone or event-availability log. Model evaluation uses
