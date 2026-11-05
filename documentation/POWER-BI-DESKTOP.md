@@ -1,6 +1,6 @@
 # Power BI Desktop handoff — preserve the existing design
 
-> **Current status, 5 November 2026:** The real Desktop refresh and numerical remediation were completed on 2 November. The ratio card now displays `Demand / Nominal Capacity` on two lines, with its original font, colors, size and position. The final saved PBIX was reopened on 5 November and passed 47/47 DAX engine checks again. Its report definitions/resources match the fresh four-page PDF exported on 4 November. Use `dashboard/MOI-Corrected-2026-11-02.pbix` and the corrected PDFs/screenshots, whose stable filenames are retained. See [the current validation report](VALIDATION-2026-11-02-AR.md) and [latest Desktop evidence](validation-2026-11-04/desktop-validation.json).
+> **Current status, 5 November 2026:** The real Desktop refresh and numerical remediation were completed on 2 November. The ratio card now displays `Demand / Nominal Capacity` on two lines, with its original font, colors, size and position. The final saved PBIX was reopened on 5 November and passed 47/47 DAX engine checks again. Its report definitions/resources match the fresh four-page PDF exported on 4 November. Use `dashboard/MOI-Corrected-2026-11-02.pbix` and the corrected PDFs/screenshots, whose stable filenames are retained. PR #1 was merged into `main` on 5 November 2026; see [the current validation report](VALIDATION-2026-11-02-AR.md) and [latest Desktop evidence](validation-2026-11-04/desktop-validation.json).
 
 ## Historical handoff — state at 19 October 2026
 
@@ -149,5 +149,4 @@ backgrounds, theme, colors, and geometry untouched.
   tested filters and any warnings. These were pending checklist items at the
   historical handoff; the dated Desktop evidence records what was later executed.
 
-The PR must not be merged and main must not be edited without the owner's
-approval. The backup branch remains an immutable historical reference.
+At the original October handoff, the PR was not to be merged and `main` was not to be edited without the owner's approval. PR #1 was merged on 5 November 2026. The backup branch remains an immutable historical reference.
