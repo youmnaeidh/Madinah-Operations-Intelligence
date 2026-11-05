@@ -1,0 +1,61 @@
+{
+  "native_dashboard": "C:\\Users\\dell-pc\\.codex\\.chatgpt-projects\\g-p-6ac07bd2dd8c8191b32d00728cffe943\\moi-validation-20261104\\release-dashboard.pdf",
+  "caption": "Demand / Nominal Capacity",
+  "dashboard_pages": 4,
+  "case_study_pages": 6,
+  "dashboard_sha256": "e3594c5350a72418ea81c620f623891da88485e5f4752d26afcc41cb418a8d77",
+  "case_study_sha256_before": "f2e20244d0cdfdee2f5c54905848c263e04c4cb358b9226bf65deeaec5aecb64",
+  "case_study_sha256_after": "0811e8794a4c98733e4714b5b76ca04adf0d93ec1cf8fc59a746f8c709387031",
+  "case_study_text_and_drawing_instructions_unchanged": true,
+  "case_study_unrelated_images_unchanged": true,
+  "case_study_operations_image_size": [
+    2575,
+    1482
+  ],
+  "dashboard_preview_sizes": [
+    [
+      2560,
+      1473
+    ],
+    [
+      2560,
+      1473
+    ],
+    [
+      2560,
+      1473
+    ],
+    [
+      2560,
+      1473
+    ]
+  ],
+  "dashboard_renders": [
+    "C:\\Users\\dell-pc\\.codex\\.chatgpt-projects\\g-p-6ac07bd2dd8c8191b32d00728cffe943\\moi-validation-20261104\\export-qa\\dashboard-page-1.png",
+    "C:\\Users\\dell-pc\\.codex\\.chatgpt-projects\\g-p-6ac07bd2dd8c8191b32d00728cffe943\\moi-validation-20261104\\export-qa\\dashboard-page-2.png",
+    "C:\\Users\\dell-pc\\.codex\\.chatgpt-projects\\g-p-6ac07bd2dd8c8191b32d00728cffe943\\moi-validation-20261104\\export-qa\\dashboard-page-3.png",
+    "C:\\Users\\dell-pc\\.codex\\.chatgpt-projects\\g-p-6ac07bd2dd8c8191b32d00728cffe943\\moi-validation-20261104\\export-qa\\dashboard-page-4.png"
+  ],
+  "case_renders": [
+    "C:\\Users\\dell-pc\\.codex\\.chatgpt-projects\\g-p-6ac07bd2dd8c8191b32d00728cffe943\\moi-validation-20261104\\export-qa\\case-page-1.png",
+    "C:\\Users\\dell-pc\\.codex\\.chatgpt-projects\\g-p-6ac07bd2dd8c8191b32d00728cffe943\\moi-validation-20261104\\export-qa\\case-page-2.png",
+    "C:\\Users\\dell-pc\\.codex\\.chatgpt-projects\\g-p-6ac07bd2dd8c8191b32d00728cffe943\\moi-validation-20261104\\export-qa\\case-page-3.png",
+    "C:\\Users\\dell-pc\\.codex\\.chatgpt-projects\\g-p-6ac07bd2dd8c8191b32d00728cffe943\\moi-validation-20261104\\export-qa\\case-page-4.png",
+    "C:\\Users\\dell-pc\\.codex\\.chatgpt-projects\\g-p-6ac07bd2dd8c8191b32d00728cffe943\\moi-validation-20261104\\export-qa\\case-page-5.png",
+    "C:\\Users\\dell-pc\\.codex\\.chatgpt-projects\\g-p-6ac07bd2dd8c8191b32d00728cffe943\\moi-validation-20261104\\export-qa\\case-page-6.png"
+  ],
+  "visual_qa": "Passed: all four dashboard renders and all six case-study renders inspected; caption zoom fully legible on two lines, no unintended clipping or overlap observed.",
+  "installed": true,
+  "visual_qa_pages_inspected": 10,
+  "caption_crop": "operations-card-qa.png",
+  "installation_date": "2026-11-05",
+  "installed_assets": {
+    "dashboard/MOI-Corrected-2026-11-02.pbix": "70622b34c2b60991de23ddd12d63229c8020229e48dbce2ea77f3aea5de8b646",
+    "documentation/MOI-Dashboard-Corrected-2026-11-02.pdf": "e3594c5350a72418ea81c620f623891da88485e5f4752d26afcc41cb418a8d77",
+    "documentation/MOI-Case-Study-Corrected-2026-11-02.pdf": "0811e8794a4c98733e4714b5b76ca04adf0d93ec1cf8fc59a746f8c709387031",
+    "screenshots/corrected-2026-11-02/01-overview.png": "f7eaa629b12b7cebc9b5cd72669df0a7ad5a5ae74bd84714b280dfa2952faf2b",
+    "screenshots/corrected-2026-11-02/02-operations.png": "ca291f92dd6be057358dd8fcd85e5aa5b465e2dba7f914c31b9a44812c59c850",
+    "screenshots/corrected-2026-11-02/03-ai-insights.png": "6b2e103b3d6b2d4769871acc4fed594ab61112693e4eea7672ae2bc1088813c2",
+    "screenshots/corrected-2026-11-02/04-project-info.png": "29ad64985f2f2900f798d06a414dd8b3a093afd6768b8f38d0e5db949ad798ef"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "caption_and_export_date": "2026-11-04",
+  "validation_date": "2026-11-05",
+  "release_installation_date": "2026-11-05",
+  "application": "Microsoft Power BI Desktop",
+  "application_version": "2.159.1231.0",
+  "baseline_commit": "824b3afbcbb86885cf961bd8d431c55fa2e20c58",
+  "artifact": "dashboard/MOI-Corrected-2026-11-02.pbix",
+  "artifact_sha256": "70622b34c2b60991de23ddd12d63229c8020229e48dbce2ea77f3aea5de8b646",
+  "workflow": [
+    "Saved accepted report as PBIP in Desktop",
+    "Set target projection displayName",
+    "Enabled native label text wrapping in Desktop",
+    "Saved PBIX in Desktop",
+    "Closed and reopened saved PBIX",
+    "Executed existing 47-case DAX query on reopened PBIX",
+    "Exported four-page PDF natively from Desktop"
+  ],
+  "caption": {
+    "text": "Demand / Nominal Capacity",
+    "fully_visible": true,
+    "lines": 2,
+    "text_wrap": true,
+    "font_color_size_position_preserved": true,
+    "value_display": "8.4%",
+    "demand": 30000,
+    "nominal_capacity": 356984,
+    "ratio": 0.08403737982654685,
+    "measure_query_ref": "_Measures.Capacity Utilization",
+    "calculation_unchanged": true
+  },
+  "saved_pbix_reopened": true,
+  "final_save_revalidation": "Installation detected a later native save at 06:25 on 4 November. Compared with the previously verified archive, only DataModel and SecurityBindings member bytes changed. All report definitions and resources match the exported report. The final saved PBIX was reopened on 5 November and all 47 DAX checks passed again; Operations caption and KPIs were visually confirmed. Closed without saving subsequent query/navigation state.",
+  "dax_engine": {
+    "query": "dax/filter-context-verification.dax",
+    "tests": 47,
+    "passed": 47,
+    "failed": 0,
+    "executed_on_reopened_final_pbix": true,
+    "note": "Repeated executions verify the same 47 cases; they are not counted as additional unique tests."
+  },
+  "refresh_scope": "Caption-only follow-up; no new Power Query refresh or model training. The prior 2 November refresh remains separately documented.",
+  "interactive_filter_scope": "Night-filter interaction was verified on 2 November; not repeated during this caption-only follow-up.",
+  "preservation": {
+    "pages": 4,
+    "visuals": 119,
+    "other_visuals_byte_identical": 118,
+    "original_source_asset_hashes_matched": 16,
+    "unchanged_semantic_definition_files": 23,
+    "regenerated_semantic_file": "cultures/en-US.tmdl linguisticMetadata",
+    "opaque_model_binary_equivalence_asserted": false,
+    "details": "caption-preservation.json"
+  },
+  "exports": {
+    "dashboard_pages": 4,
+    "case_study_pages": 6,
+    "all_ten_page_renders_visually_reviewed": true,
+    "caption_legible_without_unintended_clipping_or_overlap": true,
+    "case_study_only_operations_image_replaced": true,
+    "case_study_text_drawing_streams_other_images_preserved": true,
+    "details": "export-verification.json"
+  },
+  "limits": [
+    "Synthetic-data prototype and retrospective evaluation, not independent production validation",
+    "Power BI Service, gateway, RLS and exhaustive interaction combinations not tested",
+    "Historical unsuccessful candidate was quarantined and never published"
+  ]
+}

@@ -1,6 +1,6 @@
 # Final CI and release QA
 
-The Windows CI defect is fixed. The remaining release task is the caption on the 8.4% card and the corresponding Desktop exports. PR #1 remains open and unmerged.
+The Windows CI defect and the 8.4% card caption are fixed. The saved final PBIX was reopened, checked in Desktop and exported again. PR #1 remains open and unmerged.
 
 ## Source-byte preservation and CI
 
@@ -21,18 +21,20 @@ Independent recomputation confirms 30,000 predictions and 6,057 resolved retrosp
 
 Capacity is 356,984; demand/nominal capacity is 8.40373798%; Active is 267; High Risk is 3,371; Active High Risk is 39. Original source bytes and exported numeric results remain consistent.
 
-The saved corrected PBIX passes archive checks for four pages, 119 visuals, original positions/sizes/types and protected visual resources. The existing 47/47 DAX checks and interactive Night-filter check remain the recorded Desktop evidence; they were not rerun in this follow-up. Python and archive verification are not a substitute for new DAX execution.
+The saved corrected PBIX passes archive checks for four pages, 119 visuals, original positions/sizes/types and protected visual resources. All 47 DAX engine checks were rerun successfully on 4 November, including after reopening the saved PBIX. The interactive Night-filter check remains separately recorded in the 2 November evidence. Python and archive verification are not a substitute for DAX execution.
 
-All four current dashboard PNGs and six case-study page renders were inspected. No unintended text clipping, cropped KPI or content overlap was observed. Static exports show scrollbars and therefore do not show every chart/table row. The original composition, colors, map, mountains, backgrounds and icons remain intact.
+All four current dashboard PNGs and six case-study page renders were inspected. No unintended text clipping, cropped KPI or content overlap was observed. The case-study update replaces only the Operations image on page 4; all six pages retain their text, drawing instructions and unrelated images. The reviewed exports were installed on 5 November; [export evidence](validation-2026-11-04/export-verification.json) records their hashes. Static exports show scrollbars and therefore do not show every chart/table row. The original composition, colors, map, mountains, backgrounds and icons remain intact.
 
 Documentation now distinguishes historical handoff limitations from the subsequently completed Desktop validation. Synthetic-data, retrospective-evaluation, feature-timing, censoring and false-alert disclosures remain explicit. Cross-platform individual feature importance can shift between collinear inputs; unchanged checks verify predictions, metrics, district summaries and grouped importance within their existing tolerances.
 
-## Outstanding caption and release decision
+## Caption completion and release decision — 4 November 2026
 
-The Operations card still reads `Capacity Utilization`; the current case-study screenshot repeats it. Its calculation is correct, but the requested `Demand / Nominal Capacity` caption has not been applied.
+The Operations card now displays the full `Demand / Nominal Capacity` caption on two lines. Native label wrapping keeps the original font, colors, card size and position. Its value remains 8.4%, backed by the unchanged 30,000 / 356,984 calculation (8.40373798%).
 
-In the follow-up, Desktop eventually opened through its Windows association and the Operations page was inspected. Caption input did not behave reliably. The working PBIX subsequently contained unrelated pasted text in the target visual's `displayName` and `nativeQueryRef`. Its `DataModel`, `SecurityBindings` and active-page metadata also differed; binary model equivalence was not assumed. This unaccepted candidate was quarantined outside the repository and the known-good working PBIX restored from the clean release checkout. The accepted artifact remains SHA-256 `b551503dbb1273e273eebdf35d3fd5308d29494c4573e803996ef7e3f6391922`.
+A fresh PBIP was saved from the accepted report in Desktop. Only the target visual's display name was edited in that project; label wrapping was enabled in Desktop. The project was then saved as PBIX, closed and reopened. Desktop 2.159.1231.0 passed the existing 47-case query on the reopened PBIX and produced a new four-page PDF.
 
-Desktop control then timed out even on window inventory after runtime reset. A host probe showed approximately 14 MB free physical memory out of 8 GB, a possible contributor rather than a proven sole cause. No valid caption correction, new DAX test or PDF/screenshot export is claimed. The release PBIX/PDF/PNG files remain the previously verified versions.
+The report archive differs only in the target card's `displayName` and `textWrap` properties. The other 118 visuals, page metadata, filters, bookmarks and static resources are byte-identical to the accepted previous report. All 23 semantic files covering tables/measures, M expressions, relationships and model/database definitions are unchanged. Desktop regenerated linguistic metadata and serialized the binary model/security bindings; binary model equivalence is not asserted. Live DAX results provide separate engine evidence.
 
-The project can be shown as a synthetic portfolio prototype with this explicit caption limitation. PR #1 is ready for review of the CI/documentation changes, but the requested final release is not fully complete: edit the caption in Desktop, preserve the card's geometry/style/value, save and reopen the PBIX, verify the relevant calculation and filters, re-export the dashboard and affected case-study preview, and inspect the final outputs. Merge still requires the owner's explicit approval.
+The final native save was additionally reopened on 5 November and passed all 47 DAX checks. Its report definitions/resources match the 4 November export; only DataModel and SecurityBindings bytes differ from the earlier saved candidate. The earlier unsuccessful UI-input candidate was quarantined and never published. The final accepted PBIX is SHA-256 `70622b34c2b60991de23ddd12d63229c8020229e48dbce2ea77f3aea5de8b646`. See [Desktop evidence](validation-2026-11-04/desktop-validation.json) and [preservation checks](validation-2026-11-04/caption-preservation.json).
+
+The project is suitable for a portfolio as a synthetic-data prototype with retrospective evaluation and human review. PR #1 is ready for final review subject to successful checks on its latest commit. Production, Power BI Service/gateway/RLS and exhaustive interaction combinations remain outside the tested scope. Merge still requires the owner's explicit approval.

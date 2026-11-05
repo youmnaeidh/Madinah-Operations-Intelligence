@@ -1,0 +1,335 @@
+{
+  "baseline_sha256": "b551503dbb1273e273eebdf35d3fd5308d29494c4573e803996ef7e3f6391922",
+  "candidate_sha256": "70622b34c2b60991de23ddd12d63229c8020229e48dbce2ea77f3aea5de8b646",
+  "zip_members_added": [],
+  "zip_members_removed": [],
+  "zip_byte_changes": [
+    {
+      "member": "DataModel",
+      "old_bytes": 3003806,
+      "new_bytes": 2989140,
+      "old_sha256": "173940426f19d2f8b7dd865be956ace2551cae174344b4a80ea8ce6bf255efb6",
+      "new_sha256": "711f3867be1b80185b7c9aeaab5a0996c6793c9b735cc6baad892c6a8ea1f0e9"
+    },
+    {
+      "member": "Report/definition/pages/61ed2811ad38ea181951/visuals/49f3a81cf1cc8b51f5a9/visual.json",
+      "old_bytes": 1454,
+      "new_bytes": 1600,
+      "old_sha256": "96f25507c008946049ff34d463c4041d59c1045944b9c3010ac4dcfc2a17645f",
+      "new_sha256": "fae90a0f664d2ae349292197e6ae20b160b00fc6f16175e3370cc0841880f8de"
+    },
+    {
+      "member": "SecurityBindings",
+      "old_bytes": 4486,
+      "new_bytes": 4486,
+      "old_sha256": "c3388e841526c489a57aba36b3d51da7babac0bfef3b368a44871cb5fbb8a593",
+      "new_sha256": "bd7eb6415e3fd17756eeacf2040e1163cf3e23b476f137f3752216eafb9f211c"
+    },
+    {
+      "member": "Settings",
+      "old_bytes": 276,
+      "new_bytes": 278,
+      "old_sha256": "4d989fdf6df40992a87ce25926cc68ad38fe05f6dbf6d8bd31877c279c4f532a",
+      "new_sha256": "3a8eeb8dcfa687616312a3804fe9c0f806d42ec440d653c56bb509f5d4e65279"
+    }
+  ],
+  "json_semantic_changes": {
+    "Report/definition/pages/61ed2811ad38ea181951/visuals/49f3a81cf1cc8b51f5a9/visual.json": [
+      {
+        "path": "/visual/objects/label",
+        "change": "added",
+        "new": [
+          {
+            "properties": {
+              "textWrap": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "id": "default"
+            }
+          }
+        ]
+      },
+      {
+        "path": "/visual/query/queryState/Data/projections/0/displayName",
+        "change": "added",
+        "new": "Demand / Nominal Capacity"
+      }
+    ],
+    "Settings": [
+      {
+        "path": "/QueriesSettings/Version",
+        "change": "changed",
+        "old": "2.159.229.0",
+        "new": "2.159.1206.0"
+      }
+    ]
+  },
+  "visuals_total": 119,
+  "other_visuals_byte_identical": true,
+  "target_card_only_expected_caption_and_wrap_changes": true,
+  "target_card_geometry_unchanged": true,
+  "all_static_resources_byte_identical": true,
+  "static_resource_members": 23,
+  "all_bookmarks_byte_identical": true,
+  "bookmark_members": 4,
+  "source_asset_hashes": [
+    {
+      "path": "dashboard/Madinah Operations Intelligence.pbix",
+      "expected": "6bb9964b4f9978c1bf0d8f9e142dd76a17fb6d6b3f31b37497c97307500a524d",
+      "actual": "6bb9964b4f9978c1bf0d8f9e142dd76a17fb6d6b3f31b37497c97307500a524d",
+      "matches": true
+    },
+    {
+      "path": "data/DimCategory.csv",
+      "expected": "588c0add726ac186bfd160fd6709c7e7dfd7015bc3dd244a9dcbb698c0074406",
+      "actual": "588c0add726ac186bfd160fd6709c7e7dfd7015bc3dd244a9dcbb698c0074406",
+      "matches": true
+    },
+    {
+      "path": "data/DimChannel.csv",
+      "expected": "3c087cd519089c5704220d66e9c6294f05c6869d221a6528a51f88a6ac9735f4",
+      "actual": "3c087cd519089c5704220d66e9c6294f05c6869d221a6528a51f88a6ac9735f4",
+      "matches": true
+    },
+    {
+      "path": "data/DimDate.csv",
+      "expected": "e6f6c1a5737886d999fda9178f0feb201cde7d14c32f21b615ad4c3db47d4e11",
+      "actual": "e6f6c1a5737886d999fda9178f0feb201cde7d14c32f21b615ad4c3db47d4e11",
+      "matches": true
+    },
+    {
+      "path": "data/DimDistrict.csv",
+      "expected": "4bb04d2466d3c8297ccbea9797a659145b485dc32f8e231c733f27ae4bab1b83",
+      "actual": "4bb04d2466d3c8297ccbea9797a659145b485dc32f8e231c733f27ae4bab1b83",
+      "matches": true
+    },
+    {
+      "path": "data/DimTeam.csv",
+      "expected": "e5e9364fbc3a7570978c95f3ae941353b3156db38b809eed82cdae3765d03a0b",
+      "actual": "e5e9364fbc3a7570978c95f3ae941353b3156db38b809eed82cdae3765d03a0b",
+      "matches": true
+    },
+    {
+      "path": "data/DimTime.csv",
+      "expected": "9a50976ca4806a01e1bc2500638b6dcd532962f77de51b2b06b293c23d750adf",
+      "actual": "9a50976ca4806a01e1bc2500638b6dcd532962f77de51b2b06b293c23d750adf",
+      "matches": true
+    },
+    {
+      "path": "data/FactDailyCapacity.csv",
+      "expected": "051e80c8e943ff10128c72404731ee62eeb54efbe956d7b0c219b92be782f198",
+      "actual": "051e80c8e943ff10128c72404731ee62eeb54efbe956d7b0c219b92be782f198",
+      "matches": true
+    },
+    {
+      "path": "data/FactIncidents.csv",
+      "expected": "b2c6396bdda20a60d7fb44af83e75cb02ab5be493ab12310d8d718007d2242f8",
+      "actual": "b2c6396bdda20a60d7fb44af83e75cb02ab5be493ab12310d8d718007d2242f8",
+      "matches": true
+    },
+    {
+      "path": "data/generation_metadata.json",
+      "expected": "ed0e0a6c0b129a05bf7286789c386973021f920c1a856b8ad8af8bb35ffc390e",
+      "actual": "ed0e0a6c0b129a05bf7286789c386973021f920c1a856b8ad8af8bb35ffc390e",
+      "matches": true
+    },
+    {
+      "path": "documentation/Madinah Operations Intelligence - Case Study.pdf",
+      "expected": "9bb59dae32e7718f9bb62e69936ffee9b06f7a8536306b40288e8510c5df0882",
+      "actual": "9bb59dae32e7718f9bb62e69936ffee9b06f7a8536306b40288e8510c5df0882",
+      "matches": true
+    },
+    {
+      "path": "documentation/Madinah Operations Intelligence - Dashboard.pdf",
+      "expected": "2b64bcdb0b5ada9cf6b23a4c6fd1af461e088d65696320d9a57991f8108da68b",
+      "actual": "2b64bcdb0b5ada9cf6b23a4c6fd1af461e088d65696320d9a57991f8108da68b",
+      "matches": true
+    },
+    {
+      "path": "screenshots/01-overview.png",
+      "expected": "6259222173c311311349e595950502f85dd187de72a4b25330b136951592bee7",
+      "actual": "6259222173c311311349e595950502f85dd187de72a4b25330b136951592bee7",
+      "matches": true
+    },
+    {
+      "path": "screenshots/02-operations.png",
+      "expected": "c848223e53b241d0c543a7efb28aa8851944e6b0c669f80034ae37886d86528b",
+      "actual": "c848223e53b241d0c543a7efb28aa8851944e6b0c669f80034ae37886d86528b",
+      "matches": true
+    },
+    {
+      "path": "screenshots/03-ai-insights.png",
+      "expected": "1f223126b9b90908aa913d3c36420895e87c0b07e0f379fc5c2398a920110a6c",
+      "actual": "1f223126b9b90908aa913d3c36420895e87c0b07e0f379fc5c2398a920110a6c",
+      "matches": true
+    },
+    {
+      "path": "screenshots/04-project-info.png",
+      "expected": "ff173554976775252d7898c6b6a2899cd383aab5ec9cb2606f2ddf4dd1fa2cf8",
+      "actual": "ff173554976775252d7898c6b6a2899cd383aab5ec9cb2606f2ddf4dd1fa2cf8",
+      "matches": true
+    }
+  ],
+  "semantic_definition_files": [
+    {
+      "path": "database.tmdl",
+      "before_sha256": "822c914b643bca32bb20abd8a762df8204a1b9ef02acc2bc7348727f6699cb96",
+      "after_sha256": "822c914b643bca32bb20abd8a762df8204a1b9ef02acc2bc7348727f6699cb96",
+      "unchanged": true
+    },
+    {
+      "path": "expressions.tmdl",
+      "before_sha256": "bf0d16fad521ac69d07afed27495316dac586931f374b386b210bfbb198c971e",
+      "after_sha256": "bf0d16fad521ac69d07afed27495316dac586931f374b386b210bfbb198c971e",
+      "unchanged": true
+    },
+    {
+      "path": "model.tmdl",
+      "before_sha256": "e6a6eb717eb1f9fdcc5f1a1b83686c0990e794af854ef5b4800e061bdd377e29",
+      "after_sha256": "e6a6eb717eb1f9fdcc5f1a1b83686c0990e794af854ef5b4800e061bdd377e29",
+      "unchanged": true
+    },
+    {
+      "path": "relationships.tmdl",
+      "before_sha256": "f68aa5d3fc50ba20ded9cd3a4e66ad06e64e70eed3330f96dc091ee6a2ac829b",
+      "after_sha256": "f68aa5d3fc50ba20ded9cd3a4e66ad06e64e70eed3330f96dc091ee6a2ac829b",
+      "unchanged": true
+    },
+    {
+      "path": "cultures/en-US.tmdl",
+      "before_sha256": "91b84a587dd2cdae4abdfb29f8cb046dd09bda9028f352b32cab9eea7d1ab55d",
+      "after_sha256": "3c4cf4a0b84017df63789d33fd2bb1d34c079773839b1816538006b04dd1f59c",
+      "unchanged": false
+    },
+    {
+      "path": "tables/_Measures.tmdl",
+      "before_sha256": "40d8e612b05b29ec1e2b6165f7d9b9e05ac3b86a40d250520951526005c8b512",
+      "after_sha256": "40d8e612b05b29ec1e2b6165f7d9b9e05ac3b86a40d250520951526005c8b512",
+      "unchanged": true
+    },
+    {
+      "path": "tables/CapacityAllocation.tmdl",
+      "before_sha256": "90ca3efa3542d3ec4678be12f6cf8b09e9cc4b1c6643638762c73e7ad3dde5c6",
+      "after_sha256": "90ca3efa3542d3ec4678be12f6cf8b09e9cc4b1c6643638762c73e7ad3dde5c6",
+      "unchanged": true
+    },
+    {
+      "path": "tables/DateTableTemplate_5cdbad31-5416-4e8b-af3c-a1df1096176d.tmdl",
+      "before_sha256": "b4fb83cd53527177d0a6e6dfceb75be25ea8e5bc1701dc71178d006543ae9ced",
+      "after_sha256": "b4fb83cd53527177d0a6e6dfceb75be25ea8e5bc1701dc71178d006543ae9ced",
+      "unchanged": true
+    },
+    {
+      "path": "tables/DimCategory.tmdl",
+      "before_sha256": "23aa97703ae4c8bbb30bc66cc07b1a2c39fdb7468ed84083b7f746ef7b3765d1",
+      "after_sha256": "23aa97703ae4c8bbb30bc66cc07b1a2c39fdb7468ed84083b7f746ef7b3765d1",
+      "unchanged": true
+    },
+    {
+      "path": "tables/DimChannel.tmdl",
+      "before_sha256": "717dfbc90e048c9dd0fa9e35dda5d2f00fadec8f8f396e9796aa83ad702ea96a",
+      "after_sha256": "717dfbc90e048c9dd0fa9e35dda5d2f00fadec8f8f396e9796aa83ad702ea96a",
+      "unchanged": true
+    },
+    {
+      "path": "tables/DimDate.tmdl",
+      "before_sha256": "71b77a0052ee89a59eda2546d5cc9dbeaf5847ae4092e778beec785e2ccabf54",
+      "after_sha256": "71b77a0052ee89a59eda2546d5cc9dbeaf5847ae4092e778beec785e2ccabf54",
+      "unchanged": true
+    },
+    {
+      "path": "tables/DimDistrict.tmdl",
+      "before_sha256": "051694b8c9bf1bdfde726ceee41d117d97271b19f757a2a7e5cd417b898e73a2",
+      "after_sha256": "051694b8c9bf1bdfde726ceee41d117d97271b19f757a2a7e5cd417b898e73a2",
+      "unchanged": true
+    },
+    {
+      "path": "tables/DimShift.tmdl",
+      "before_sha256": "cac4a7548e32845d9ac7cb53c2cda0b9a8557a926990c35a5da4c51afe2bc500",
+      "after_sha256": "cac4a7548e32845d9ac7cb53c2cda0b9a8557a926990c35a5da4c51afe2bc500",
+      "unchanged": true
+    },
+    {
+      "path": "tables/DimTeam.tmdl",
+      "before_sha256": "654f084ad621e6247ba652607db2d2cd872563fa4fca91c2a9a9125bd271142b",
+      "after_sha256": "654f084ad621e6247ba652607db2d2cd872563fa4fca91c2a9a9125bd271142b",
+      "unchanged": true
+    },
+    {
+      "path": "tables/DimTime.tmdl",
+      "before_sha256": "3e12e4c8fdff7670ef6c41659c08630dca91265a7e04ef7bb43c0ff047abce4c",
+      "after_sha256": "3e12e4c8fdff7670ef6c41659c08630dca91265a7e04ef7bb43c0ff047abce4c",
+      "unchanged": true
+    },
+    {
+      "path": "tables/FactDailyCapacity.tmdl",
+      "before_sha256": "4187b9ece9d671b0f8e79f2d56848c7d27c61d1f1f6a2cbf3757ebe607ed88bf",
+      "after_sha256": "4187b9ece9d671b0f8e79f2d56848c7d27c61d1f1f6a2cbf3757ebe607ed88bf",
+      "unchanged": true
+    },
+    {
+      "path": "tables/FactIncidents.tmdl",
+      "before_sha256": "c04aa13ff1d068c0833e74c5c545b7392f46cd3cd826e40a56d29b2cc92c7377",
+      "after_sha256": "c04aa13ff1d068c0833e74c5c545b7392f46cd3cd826e40a56d29b2cc92c7377",
+      "unchanged": true
+    },
+    {
+      "path": "tables/feature_group_importance.tmdl",
+      "before_sha256": "05277891bbb905ea26a12be7c53320c8d4dd0239157ea20d9611c12106e1a016",
+      "after_sha256": "05277891bbb905ea26a12be7c53320c8d4dd0239157ea20d9611c12106e1a016",
+      "unchanged": true
+    },
+    {
+      "path": "tables/incident_ai_predictions.tmdl",
+      "before_sha256": "a8ae604d02fe690673df8a6c3b228385a16d49138269af0afbf123d410040a85",
+      "after_sha256": "a8ae604d02fe690673df8a6c3b228385a16d49138269af0afbf123d410040a85",
+      "unchanged": true
+    },
+    {
+      "path": "tables/LocalDateTable_4c346a88-4f03-45c8-8190-5fca326ce727.tmdl",
+      "before_sha256": "3f7f5f36a7c364b7d92f3b1d388a0ce9af25cf3765e8be9c82bd639357d393b0",
+      "after_sha256": "3f7f5f36a7c364b7d92f3b1d388a0ce9af25cf3765e8be9c82bd639357d393b0",
+      "unchanged": true
+    },
+    {
+      "path": "tables/LocalDateTable_abb9f855-5166-4dff-aea6-78bb7152b295.tmdl",
+      "before_sha256": "621ae30e2e05e8cf8dc82d34b6c94343a1a92f094358ee3d8e4c2b836866ceea",
+      "after_sha256": "621ae30e2e05e8cf8dc82d34b6c94343a1a92f094358ee3d8e4c2b836866ceea",
+      "unchanged": true
+    },
+    {
+      "path": "tables/LocalDateTable_c7db7ecc-9e29-427c-975b-c977b0efc00c.tmdl",
+      "before_sha256": "722ef940bf983552b06b48d7f37e54506709637530786617ea7c0541e4442aa5",
+      "after_sha256": "722ef940bf983552b06b48d7f37e54506709637530786617ea7c0541e4442aa5",
+      "unchanged": true
+    },
+    {
+      "path": "tables/model_performance.tmdl",
+      "before_sha256": "89e7f4362b7c42c38bb1dda4dbf71435515478d1c94e7ff256125a5a9e871132",
+      "after_sha256": "89e7f4362b7c42c38bb1dda4dbf71435515478d1c94e7ff256125a5a9e871132",
+      "unchanged": true
+    },
+    {
+      "path": "tables/ModelSettings.tmdl",
+      "before_sha256": "50148774c4d370e6c99ce6cdec8c541d1b305689f5067f0e5942db0b2063e13a",
+      "after_sha256": "50148774c4d370e6c99ce6cdec8c541d1b305689f5067f0e5942db0b2063e13a",
+      "unchanged": true
+    }
+  ],
+  "unchanged_semantic_definition_count": 23,
+  "changed_semantic_definition_files": [
+    {
+      "path": "cultures/en-US.tmdl",
+      "before_sha256": "91b84a587dd2cdae4abdfb29f8cb046dd09bda9028f352b32cab9eea7d1ab55d",
+      "after_sha256": "3c4cf4a0b84017df63789d33fd2bb1d34c079773839b1816538006b04dd1f59c",
+      "unchanged": false
+    }
+  ],
+  "scope": "Archive and file-level verification. Opaque DataModel binary differs; no binary semantic-equivalence assertion is made. The 23 unchanged semantic definition files cover tables/measures, M expressions, relationships and model/database definitions. The changed en-US file is generated linguisticMetadata. Live DAX engine verification is separately observed by the parent agent."
+}

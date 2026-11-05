@@ -6,11 +6,9 @@ An end-to-end portfolio case study inspired by my internship experience at the M
 
 > **Project scope:** Independent portfolio prototype using synthetic data. It is not an official Municipality product and has not been production-deployed.
 
-> **Validated desktop snapshot — 2 November 2026:** Python tests, independent retraining, a real Power BI Desktop refresh, and 47 DAX engine checks were completed. The four-page design is preserved. Use the corrected deliverables below; the original PBIX, screenshots and PDFs remain historical files.
->
-> **Display limitation:** The 8.4% card retains its historical `Capacity Utilization` caption. Its denominator is now the explicitly labelled nominal capacity; it is not measured field productivity. The caption correction still requires a successful Desktop edit and verified re-export; no unsuccessful editing candidate is included in the deliverables.
+> **Validated release — 5 November 2026:** The card now reads `Demand / Nominal Capacity` in full. The final saved PBIX was reopened in Power BI Desktop and passed all 47 DAX engine checks again. Its four-page design is preserved. Use the corrected deliverables below; the original PBIX, screenshots and PDFs remain historical files.
 
-> **CI follow-up:** [Windows and Ubuntu validation passed](https://github.com/youmnaeidh/Madinah-Operations-Intelligence/actions/runs/41517009145) after preserving source bytes during Git checkout. All 18 tests and 30,000 prediction checks passed on both platforms. See [final QA and the remaining caption task](documentation/RELEASE-QA.md).
+> **CI follow-up:** [Windows and Ubuntu validation passed](https://github.com/youmnaeidh/Madinah-Operations-Intelligence/actions/runs/41580486820) after preserving source bytes during Git checkout. All 18 tests and 30,000 prediction checks passed on both platforms. See [final QA](documentation/RELEASE-QA.md); the PR checks show validation for the latest commit.
 
 ## Corrected deliverables
 
@@ -19,7 +17,7 @@ An end-to-end portfolio case study inspired by my internship experience at the M
 - [Six-page case study](documentation/MOI-Case-Study-Corrected-2026-11-02.pdf)
 - [Validation report — Arabic](documentation/VALIDATION-2026-11-02-AR.md)
 - [Independent numerical results](documentation/validation-2026-11-02/independent-validation.json)
-- [Desktop checks and limitations](documentation/validation-2026-11-02/desktop-validation.json)
+- [Desktop checks and limitations](documentation/validation-2026-11-04/desktop-validation.json)
 
 ![Executive overview](screenshots/corrected-2026-11-02/01-overview.png)
 
