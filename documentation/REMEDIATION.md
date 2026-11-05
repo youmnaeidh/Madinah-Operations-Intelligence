@@ -1,5 +1,7 @@
 # Technical remediation evidence — 19 October 2026
 
+> **Publication update — 5 November 2026:** [PR #1](https://github.com/youmnaeidh/Madinah-Operations-Intelligence/pull/1) was merged into `main` at commit [`41c98d6`](https://github.com/youmnaeidh/Madinah-Operations-Intelligence/commit/41c98d606fdb34efcdc78ee4b738017e76e4c5e9). The pre-merge narrative below is retained as historical evidence; current deliverables are linked from the root README.
+
 > **Status update — 2 November 2026:** The subsequent Desktop refresh, 47 DAX
 > engine checks, saved corrected PBIX, and corrected PDF/screenshot exports are
 > complete. Use the dated deliverables in README.md and the
@@ -10,7 +12,7 @@ Repository: **youmnaeidh/Madinah-Operations-Intelligence**. Baseline commit:
 `ed3ab0aeea07fdc21623fd761c6dce376fda2105`. Dedicated branch:
 `remediation/technical-2026-10-19`, created from the verified latest main.
 All publishing uses the connected GitHub integration in this original repository.
-No separate Development repository is used. Main is not updated or merged, and
+No separate Development repository is used. At the 19 October remediation stage, `main` was not yet updated or merged, and
 `backup-before-remediation-2026-10-19` is never written.
 
 The initial corrections below covered Python, derived CSV/JSON exports,
@@ -215,5 +217,4 @@ Independent source results are in `dashboard-kpi-reconciliation.json`.
 The source/asset manifest records the exact immutable inputs. The baseline JSON
 records historical metrics, the 77 affected IDs, source observations and tested
 versions. The controlled comparison and KPI JSONs provide machine-readable
-evidence. Each change is proposed on the remediation branch; merging into main
-requires the owner's separate approval.
+evidence. These changes were originally proposed on the remediation branch and required the owner's separate approval before merging. The merge was completed on 5 November 2026.
