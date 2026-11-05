@@ -1,6 +1,8 @@
 # Final CI and release QA
 
-The Windows CI defect and the 8.4% card caption are fixed. The saved final PBIX was reopened, checked in Desktop and exported again. PR #1 remains open and unmerged.
+> **Post-merge status — 5 November 2026:** [PR #1](https://github.com/youmnaeidh/Madinah-Operations-Intelligence/pull/1) is merged into `main` at commit [`41c98d6`](https://github.com/youmnaeidh/Madinah-Operations-Intelligence/commit/41c98d606fdb34efcdc78ee4b738017e76e4c5e9). The current corrected PBIX, PDFs, screenshots and model outputs are on `main`. The QA evidence below records the pre-merge verification; it is not a new post-merge test run.
+
+The Windows CI defect and the 8.4% card caption are fixed. The saved final PBIX was reopened, checked in Desktop and exported again. At the time of the final pre-merge review, PR #1 was still open. It was merged into `main` on 5 November 2026 (merge commit `41c98d6`).
 
 ## Source-byte preservation and CI
 
@@ -37,4 +39,4 @@ The report archive differs only in the target card's `displayName` and `textWrap
 
 The final native save was additionally reopened on 5 November and passed all 47 DAX checks. Its report definitions/resources match the 4 November export; only DataModel and SecurityBindings bytes differ from the earlier saved candidate. The earlier unsuccessful UI-input candidate was quarantined and never published. The final accepted PBIX is SHA-256 `70622b34c2b60991de23ddd12d63229c8020229e48dbce2ea77f3aea5de8b646`. See [Desktop evidence](validation-2026-11-04/desktop-validation.json) and [preservation checks](validation-2026-11-04/caption-preservation.json).
 
-The project is suitable for a portfolio as a synthetic-data prototype with retrospective evaluation and human review. PR #1 is ready for final review subject to successful checks on its latest commit. Production, Power BI Service/gateway/RLS and exhaustive interaction combinations remain outside the tested scope. Merge still requires the owner's explicit approval.
+The project is suitable for a portfolio as a synthetic-data prototype with retrospective evaluation and human review. PR #1 passed its final Windows and Ubuntu checks and was subsequently merged into `main` on 5 November 2026. Production, Power BI Service/gateway/RLS and exhaustive interaction combinations remain outside the tested scope. The previously pending merge is complete; the production and service-testing limitations above remain unchanged.
