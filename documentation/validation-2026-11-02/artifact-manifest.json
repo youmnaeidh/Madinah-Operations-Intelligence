@@ -1,0 +1,30 @@
+{
+  "dashboard/MOI-Corrected-2026-11-02.pbix": {
+    "bytes": 6364398,
+    "sha256": "b551503dbb1273e273eebdf35d3fd5308d29494c4573e803996ef7e3f6391922"
+  },
+  "screenshots/corrected-2026-11-02/01-overview.png": {
+    "bytes": 2083484,
+    "sha256": "f7eaa629b12b7cebc9b5cd72669df0a7ad5a5ae74bd84714b280dfa2952faf2b"
+  },
+  "screenshots/corrected-2026-11-02/02-operations.png": {
+    "bytes": 296861,
+    "sha256": "2061d8747f7e2bd849b0f58d008b7c6812827dd8643e5ff3c6f0c0212c337ee9"
+  },
+  "screenshots/corrected-2026-11-02/03-ai-insights.png": {
+    "bytes": 367271,
+    "sha256": "6b2e103b3d6b2d4769871acc4fed594ab61112693e4eea7672ae2bc1088813c2"
+  },
+  "screenshots/corrected-2026-11-02/04-project-info.png": {
+    "bytes": 300911,
+    "sha256": "29ad64985f2f2900f798d06a414dd8b3a093afd6768b8f38d0e5db949ad798ef"
+  },
+  "documentation/MOI-Case-Study-Corrected-2026-11-02.pdf": {
+    "bytes": 1192925,
+    "sha256": "f2e20244d0cdfdee2f5c54905848c263e04c4cb358b9226bf65deeaec5aecb64"
+  },
+  "documentation/MOI-Dashboard-Corrected-2026-11-02.pdf": {
+    "bytes": 3458336,
+    "sha256": "637b694e7cdc653b607dc3494176eb97597ac1a65b3152b5b9724985154bfdc1"
+  }
+}

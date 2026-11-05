@@ -1,0 +1,46 @@
+{
+  "previous_head": "ed19f710b3645925b074979dfaa60667edaba378",
+  "fix_commit": "1383f3ef723e6c76c1b2d2364eb6dda28e95aa11",
+  "changed_files": [
+    ".gitattributes"
+  ],
+  "root_cause": "Without Git attributes, Windows core.autocrlf=true changed LF to CRLF in eight original CSVs and generation_metadata.json. Every reproduced checkout hash exactly equals the corresponding failed CI hash, and every committed blob still equals its pre-existing manifest SHA-256.",
+  "fix": "Disable Git text normalization for data/*.csv and data/generation_metadata.json, preserving exact committed bytes.",
+  "original_source_files_changed": false,
+  "hash_manifest_changed": false,
+  "tests_weakened": false,
+  "local": {
+    "os": "Windows",
+    "python": "3.12.14",
+    "unit_tests": 18,
+    "source_asset_manifest_entries_matched": 16,
+    "compilation": "passed",
+    "power_bi_archive_verification": "passed",
+    "retrain": "passed",
+    "export_rows": 30000,
+    "model_score_mismatches": 0,
+    "probability_roundtrip_mismatches": 0,
+    "classification_mismatches": 0,
+    "risk_band_mismatches": 0,
+    "independent_validation": "passed"
+  },
+  "ci": {
+    "run_id": 41517009145,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/youmnaeidh/Madinah-Operations-Intelligence/actions/runs/41517009145",
+    "windows": {
+      "job_id": 125523013252,
+      "conclusion": "success",
+      "unit_tests": 18,
+      "export_rows": 30000
+    },
+    "ubuntu": {
+      "job_id": 125523013640,
+      "conclusion": "success",
+      "unit_tests": 18,
+      "export_rows": 30000
+    }
+  },
+  "limitation": "Individual feature attribution can shift between collinear DistrictKey_1 and Sector_Central across platforms; predictions, metrics, district summaries, and grouped importances match within the unchanged validation tolerances."
+}

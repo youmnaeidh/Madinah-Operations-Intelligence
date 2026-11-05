@@ -1,0 +1,18 @@
+{
+  "dashboard/Madinah Operations Intelligence.pbix": "6bb9964b4f9978c1bf0d8f9e142dd76a17fb6d6b3f31b37497c97307500a524d",
+  "data/DimCategory.csv": "588c0add726ac186bfd160fd6709c7e7dfd7015bc3dd244a9dcbb698c0074406",
+  "data/DimChannel.csv": "3c087cd519089c5704220d66e9c6294f05c6869d221a6528a51f88a6ac9735f4",
+  "data/DimDate.csv": "e6f6c1a5737886d999fda9178f0feb201cde7d14c32f21b615ad4c3db47d4e11",
+  "data/DimDistrict.csv": "4bb04d2466d3c8297ccbea9797a659145b485dc32f8e231c733f27ae4bab1b83",
+  "data/DimTeam.csv": "e5e9364fbc3a7570978c95f3ae941353b3156db38b809eed82cdae3765d03a0b",
+  "data/DimTime.csv": "9a50976ca4806a01e1bc2500638b6dcd532962f77de51b2b06b293c23d750adf",
+  "data/FactDailyCapacity.csv": "051e80c8e943ff10128c72404731ee62eeb54efbe956d7b0c219b92be782f198",
+  "data/FactIncidents.csv": "b2c6396bdda20a60d7fb44af83e75cb02ab5be493ab12310d8d718007d2242f8",
+  "data/generation_metadata.json": "ed0e0a6c0b129a05bf7286789c386973021f920c1a856b8ad8af8bb35ffc390e",
+  "documentation/Madinah Operations Intelligence - Case Study.pdf": "9bb59dae32e7718f9bb62e69936ffee9b06f7a8536306b40288e8510c5df0882",
+  "documentation/Madinah Operations Intelligence - Dashboard.pdf": "2b64bcdb0b5ada9cf6b23a4c6fd1af461e088d65696320d9a57991f8108da68b",
+  "screenshots/01-overview.png": "6259222173c311311349e595950502f85dd187de72a4b25330b136951592bee7",
+  "screenshots/02-operations.png": "c848223e53b241d0c543a7efb28aa8851944e6b0c669f80034ae37886d86528b",
+  "screenshots/03-ai-insights.png": "1f223126b9b90908aa913d3c36420895e87c0b07e0f379fc5c2398a920110a6c",
+  "screenshots/04-project-info.png": "ff173554976775252d7898c6b6a2899cd383aab5ec9cb2606f2ddf4dd1fa2cf8"
+}

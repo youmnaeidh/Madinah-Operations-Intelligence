@@ -6,7 +6,20 @@ An end-to-end portfolio case study inspired by my internship experience at the M
 
 > **Project scope:** Independent portfolio prototype using synthetic data. It is not an official Municipality product and has not been production-deployed.
 
-![Executive overview](screenshots/01-overview.png)
+> **Validated release — 5 November 2026:** The card now reads `Demand / Nominal Capacity` in full. The final saved PBIX was reopened in Power BI Desktop and passed all 47 DAX engine checks again. Its four-page design is preserved. Use the corrected deliverables below; the original PBIX, screenshots and PDFs remain historical files.
+
+> **CI follow-up:** [Windows and Ubuntu validation passed](https://github.com/youmnaeidh/Madinah-Operations-Intelligence/actions/runs/41580486820) after preserving source bytes during Git checkout. All 18 tests and 30,000 prediction checks passed on both platforms. See [final QA](documentation/RELEASE-QA.md); the PR checks show validation for the latest commit.
+
+## Corrected deliverables
+
+- [Power BI report](dashboard/MOI-Corrected-2026-11-02.pbix)
+- [Four-page dashboard PDF](documentation/MOI-Dashboard-Corrected-2026-11-02.pdf)
+- [Six-page case study](documentation/MOI-Case-Study-Corrected-2026-11-02.pdf)
+- [Validation report — Arabic](documentation/VALIDATION-2026-11-02-AR.md)
+- [Independent numerical results](documentation/validation-2026-11-02/independent-validation.json)
+- [Desktop checks and limitations](documentation/validation-2026-11-04/desktop-validation.json)
+
+![Executive overview](screenshots/corrected-2026-11-02/01-overview.png)
 
 ## Recruiter snapshot
 
@@ -30,7 +43,7 @@ The project explores:
 The Power BI report contains four connected pages:
 
 1. **Overview** — Executive KPIs, district pressure, hourly demand, service categories, SLA status, and an operational finding.
-2. **Operations** — Demand versus effective capacity, utilization, team availability, shift-level SLA performance, and operational priorities.
+2. **Operations** — Demand versus nominal capacity, demand/capacity ratios, team availability, shift-level SLA performance, and operational priorities.
 3. **AI Insights** — Predicted SLA-breach risk, risk distribution, model drivers, recommendation logic, and a high-risk review queue.
 4. **Project Info** — Business context, architecture, methodology, model performance, limitations, and governance.
 
@@ -41,13 +54,38 @@ The Power BI report contains four connected pages:
 - **Preprocessing:** A fitted `ColumnTransformer` performs numeric imputation and scaling plus categorical imputation and one-hot encoding.
 - **Model packaging:** Each classifier is evaluated inside a reproducible scikit-learn `Pipeline`; the selected fitted pipeline is exported with `joblib`.
 - **Selected model:** AdaBoost decision stumps, chosen by validation ROC-AUC.
-- **Validation design:** Time-based train, validation, and test split.
-- **Leakage control:** Features are limited to information available at or shortly after report creation.
-- **Test ROC-AUC:** 69.3%.
-- **Recall:** 76.6%.
-- **Review threshold:** 27%.
+- **Validation design:** Creation-time cohorts with labels required to be resolved before each decision cutoff; 645 late-available labels are excluded from their original cohorts.
+- **Feature availability:** Outcome fields are excluded. Daily staffing totals are also excluded because their availability at incident creation is unverified. Remaining synthetic feature and censoring assumptions are disclosed in the model card.
+- **Corrected test ROC-AUC:** 68.7% (historical 69.3%).
+- **Recall:** 85.3% (historical 76.6%).
+- **Precision:** 33.6% (historical 36.6%); higher recall produces more false alerts.
+- **Review threshold:** 24% (historical 27%), selected on validation only.
 
 The predictions are designed to support prioritization and require human review.
+The same 6,057 resolved test rows support the before/after comparison; test
+results have already been inspected and are a retrospective evaluation, not a
+new untouched holdout. See the [model card](ai-model/AI-MODEL-CARD.md) and
+[controlled comparison](documentation/validation-comparison.json).
+
+## Metric definitions
+
+- **AssignmentDelayHours** comes from AssignedAt minus CreatedAt, without
+  modifying historical records. The source ResponseHours field has unknown
+  semantics and is retained but excluded from assignment/response KPIs.
+- **Open = 2; In Progress = 265; Active = 267.** Corrected Active High Risk is
+  **39**, all In Progress; Open High Risk is **0**. High risk means probability
+  >= 0.40 and differs from the binary review threshold of 0.24.
+- **Nominal incident capacity = 356,984** at date/district/shift grain. The old
+  42,838.08 effective-capacity figure uses an unsupported 0.12 factor and is
+  preserved only as an explicitly unvalidated historical scenario. The primary
+  source demand/nominal-capacity ratio is 8.4037%, not a real productivity claim.
+- Prediction probabilities retain binary64 precision. Round percentages for
+  display only; 77 legacy classifications became inconsistent when four-decimal
+  exported scores were re-thresholded.
+
+Full definitions and independently computed KPIs are in the
+[remediation report](documentation/REMEDIATION.md) and
+[KPI reconciliation](documentation/dashboard-kpi-reconciliation.json).
 
 ## Technology
 
@@ -56,7 +94,7 @@ The predictions are designed to support prioritization and require human review.
 - DAX
 - Python
 - pandas, NumPy, scikit-learn, and joblib
-- Synthetic data generation
+- Synthetic source data (original generator not included)
 - Data-quality validation
 
 ## Repository structure
@@ -66,34 +104,62 @@ dashboard/       Power BI report
 screenshots/     Exported dashboard pages
 data/            Synthetic fact and dimension tables
 ai-model/        Training code, metrics, feature importance, and model card
-dax/             Power BI measures
-documentation/   Dashboard PDF
+dax/             Corrected measure and calculated-column definitions
+power-query/     Portable source templates; apply and verify in Desktop
+tests/           Source, model, export and dashboard regression checks
+documentation/   Historical PDFs, evidence, corrections and Desktop handoff
 ```
 
 ## Run the model
 
 From the repository root:
 
+The Windows validation runtime is Python 3.12.14 with the exact versions in requirements.txt.
+
 ```bash
 python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
 python ai-model/train_sla_risk_model.py
+python ai-model/verify_exports.py
+python ai-model/audit_dashboard.py
 ```
 
-The script reads the synthetic fact and dimension tables and exports the fitted preprocessing-and-model pipeline, model metrics, feature importance, district summaries, and incident-level risk predictions. Model selection and threshold tuning use the validation period only; the test period remains reserved for final evaluation.
+The script validates the synthetic fact and dimension tables and exports the
+fitted pipeline, metrics, feature importance, district summaries and incident
+scores. Model selection and threshold tuning use the validation cohort only;
+test labels do not select the model or threshold. The pickle is a generated,
+ignored local artifact and must be regenerated before `verify_exports.py`.
+The committed CSV/JSON outputs can be tested without a pickle. For Python CSV
+consumers, use `pd.read_csv(..., float_precision="round_trip")` for scores.
+
+To independently reproduce the historical implementation from real Git history,
+the cutoff-only diagnostic and the corrected default in isolated directories:
+
+```bash
+python ai-model/reproduce_remediation.py --output-dir /tmp/moi-reproduction
+```
+
+Choose a different writable scratch path on Windows. This requires the baseline
+commit in local Git history and the pinned dependencies. It does not rewrite
+source records. Original data-generation reproducibility is unavailable: only
+the metadata seed and supplied tables survive; see [provenance](data/PROVENANCE.md).
 
 ## Dashboard previews
 
+These previews were rendered from the corrected four-page PDF exported by Power BI Desktop.
+The original historical previews remain in the parent screenshots folder.
+
 ### Operations and SLA performance
 
-![Operations page](screenshots/02-operations.png)
+![Operations page](screenshots/corrected-2026-11-02/02-operations.png)
 
 ### AI-assisted operational insights
 
-![AI Insights page](screenshots/03-ai-insights.png)
+![AI Insights page](screenshots/corrected-2026-11-02/03-ai-insights.png)
 
 ### Methodology and governance
 
-![Project Info page](screenshots/04-project-info.png)
+![Project Info page](screenshots/corrected-2026-11-02/04-project-info.png)
 
 ## Responsible use
 
@@ -111,3 +177,9 @@ Power BI · SQL · Python · Reporting · Performance · Operations Analytics
 
 - [LinkedIn](https://www.linkedin.com/in/yomna-alhejaili-0b3991216)
 - [GitHub](https://github.com/youmnaeidh)
+
+## Reproduction and CI scope
+
+The workflow `.github/workflows/technical-validation.yml` runs Python checks and independent retraining on Windows and Linux. It also verifies the saved PBIX page geometry and protected resource bytes; it does not launch Desktop in GitHub Actions. Real DAX engine checks are recorded separately in the Desktop evidence. See [the verification query](dax/filter-context-verification.dax).
+
+Cross-platform predictions, evaluation metrics, district summaries and grouped feature importance agree within strict numerical tolerances. Individual importance can shift between collinear inputs (`DistrictKey_1` and `Sector_Central`); this is explicitly recorded, not treated as byte-identical reproduction. Scores include training records when presented for all 30,000 incidents. Held-out performance is limited to the 6,057 resolved retrospective test cases. Feature timing and right censoring remain limitations.

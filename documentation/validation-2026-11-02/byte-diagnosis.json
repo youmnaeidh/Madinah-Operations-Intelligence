@@ -1,0 +1,110 @@
+[
+  {
+    "path": "data/DimCategory.csv",
+    "original_sha256": "588c0add726ac186bfd160fd6709c7e7dfd7015bc3dd244a9dcbb698c0074406",
+    "manifest_sha256": "588c0add726ac186bfd160fd6709c7e7dfd7015bc3dd244a9dcbb698c0074406",
+    "checkout_sha256": "b032fb0daf8ebfa0ec6ff7dca6ccb3066df40cc49e60850dfae4e802bc6974b3",
+    "lf_to_crlf_sha256": "b032fb0daf8ebfa0ec6ff7dca6ccb3066df40cc49e60850dfae4e802bc6974b3",
+    "original_matches_manifest": true,
+    "checkout_is_exact_lf_to_crlf": true,
+    "checkout_hash_in_failed_ci_log": true,
+    "original_crlf_count": 0,
+    "original_lf_count": 9
+  },
+  {
+    "path": "data/DimChannel.csv",
+    "original_sha256": "3c087cd519089c5704220d66e9c6294f05c6869d221a6528a51f88a6ac9735f4",
+    "manifest_sha256": "3c087cd519089c5704220d66e9c6294f05c6869d221a6528a51f88a6ac9735f4",
+    "checkout_sha256": "6dd7d37c6c04297d486955fad4b6d0fb00308fb2143d8d1556b8cd12bdf90134",
+    "lf_to_crlf_sha256": "6dd7d37c6c04297d486955fad4b6d0fb00308fb2143d8d1556b8cd12bdf90134",
+    "original_matches_manifest": true,
+    "checkout_is_exact_lf_to_crlf": true,
+    "checkout_hash_in_failed_ci_log": true,
+    "original_crlf_count": 0,
+    "original_lf_count": 8
+  },
+  {
+    "path": "data/DimDate.csv",
+    "original_sha256": "e6f6c1a5737886d999fda9178f0feb201cde7d14c32f21b615ad4c3db47d4e11",
+    "manifest_sha256": "e6f6c1a5737886d999fda9178f0feb201cde7d14c32f21b615ad4c3db47d4e11",
+    "checkout_sha256": "e53f85715d6965c5f5f973d699a05a2e6720f74899fac7a1ceceeb49f9ced83a",
+    "lf_to_crlf_sha256": "e53f85715d6965c5f5f973d699a05a2e6720f74899fac7a1ceceeb49f9ced83a",
+    "original_matches_manifest": true,
+    "checkout_is_exact_lf_to_crlf": true,
+    "checkout_hash_in_failed_ci_log": true,
+    "original_crlf_count": 0,
+    "original_lf_count": 184
+  },
+  {
+    "path": "data/DimDistrict.csv",
+    "original_sha256": "4bb04d2466d3c8297ccbea9797a659145b485dc32f8e231c733f27ae4bab1b83",
+    "manifest_sha256": "4bb04d2466d3c8297ccbea9797a659145b485dc32f8e231c733f27ae4bab1b83",
+    "checkout_sha256": "326482a3fa623d91432586a3ea1907fdfda7a6ad97ba8c26797b26a6c93af4d0",
+    "lf_to_crlf_sha256": "326482a3fa623d91432586a3ea1907fdfda7a6ad97ba8c26797b26a6c93af4d0",
+    "original_matches_manifest": true,
+    "checkout_is_exact_lf_to_crlf": true,
+    "checkout_hash_in_failed_ci_log": true,
+    "original_crlf_count": 0,
+    "original_lf_count": 13
+  },
+  {
+    "path": "data/DimTeam.csv",
+    "original_sha256": "e5e9364fbc3a7570978c95f3ae941353b3156db38b809eed82cdae3765d03a0b",
+    "manifest_sha256": "e5e9364fbc3a7570978c95f3ae941353b3156db38b809eed82cdae3765d03a0b",
+    "checkout_sha256": "6adc8cba260ddc270b03fc2cb98ce713aea08a0f017c6f57123d700eb421e3d6",
+    "lf_to_crlf_sha256": "6adc8cba260ddc270b03fc2cb98ce713aea08a0f017c6f57123d700eb421e3d6",
+    "original_matches_manifest": true,
+    "checkout_is_exact_lf_to_crlf": true,
+    "checkout_hash_in_failed_ci_log": true,
+    "original_crlf_count": 0,
+    "original_lf_count": 49
+  },
+  {
+    "path": "data/DimTime.csv",
+    "original_sha256": "9a50976ca4806a01e1bc2500638b6dcd532962f77de51b2b06b293c23d750adf",
+    "manifest_sha256": "9a50976ca4806a01e1bc2500638b6dcd532962f77de51b2b06b293c23d750adf",
+    "checkout_sha256": "87102a6ad2267340d04711202189f3d53ac168168dd861bcafa14071ebd3b2c1",
+    "lf_to_crlf_sha256": "87102a6ad2267340d04711202189f3d53ac168168dd861bcafa14071ebd3b2c1",
+    "original_matches_manifest": true,
+    "checkout_is_exact_lf_to_crlf": true,
+    "checkout_hash_in_failed_ci_log": true,
+    "original_crlf_count": 0,
+    "original_lf_count": 25
+  },
+  {
+    "path": "data/FactDailyCapacity.csv",
+    "original_sha256": "051e80c8e943ff10128c72404731ee62eeb54efbe956d7b0c219b92be782f198",
+    "manifest_sha256": "051e80c8e943ff10128c72404731ee62eeb54efbe956d7b0c219b92be782f198",
+    "checkout_sha256": "e7f0d50a796262ec4bb054e0bc8c1c186fed1d6f76195a195ce4ba992e57595f",
+    "lf_to_crlf_sha256": "e7f0d50a796262ec4bb054e0bc8c1c186fed1d6f76195a195ce4ba992e57595f",
+    "original_matches_manifest": true,
+    "checkout_is_exact_lf_to_crlf": true,
+    "checkout_hash_in_failed_ci_log": true,
+    "original_crlf_count": 0,
+    "original_lf_count": 6589
+  },
+  {
+    "path": "data/FactIncidents.csv",
+    "original_sha256": "b2c6396bdda20a60d7fb44af83e75cb02ab5be493ab12310d8d718007d2242f8",
+    "manifest_sha256": "b2c6396bdda20a60d7fb44af83e75cb02ab5be493ab12310d8d718007d2242f8",
+    "checkout_sha256": "5c38eef015cc228de5704a9237f119cf02e08531ae133fa940bf967608b96bde",
+    "lf_to_crlf_sha256": "5c38eef015cc228de5704a9237f119cf02e08531ae133fa940bf967608b96bde",
+    "original_matches_manifest": true,
+    "checkout_is_exact_lf_to_crlf": true,
+    "checkout_hash_in_failed_ci_log": true,
+    "original_crlf_count": 0,
+    "original_lf_count": 30001
+  },
+  {
+    "path": "data/generation_metadata.json",
+    "original_sha256": "ed0e0a6c0b129a05bf7286789c386973021f920c1a856b8ad8af8bb35ffc390e",
+    "manifest_sha256": "ed0e0a6c0b129a05bf7286789c386973021f920c1a856b8ad8af8bb35ffc390e",
+    "checkout_sha256": "e3edeec907dcecea8c266f7e787d88800117b766dabcfff3d03c4529e71ab223",
+    "lf_to_crlf_sha256": "e3edeec907dcecea8c266f7e787d88800117b766dabcfff3d03c4529e71ab223",
+    "original_matches_manifest": true,
+    "checkout_is_exact_lf_to_crlf": true,
+    "checkout_hash_in_failed_ci_log": true,
+    "original_crlf_count": 0,
+    "original_lf_count": 6
+  }
+]

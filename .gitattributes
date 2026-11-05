@@ -1,0 +1,4 @@
+# Preserve the exact source bytes used by the SHA-256 integrity checks.
+# Do not normalize these files during checkout or when adding them.
+data/*.csv -text
+data/generation_metadata.json -text

@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-02",
+  "application": "Microsoft Power BI Desktop",
+  "version": "2.159.883.0 64-bit",
+  "evidence_type": "Observed native Desktop UI, saved PBIX, embedded verification query and native PDF export",
+  "source_head_before_changes": "adb7eb842e34c4a22fbfccae19992b23c8aa99c7",
+  "baseline_tree_verified_exactly": "f11797a7620e148c0f2f2bd4260d7893a5aed6cd",
+  "desktop_opened": true,
+  "power_query_refresh_completed": true,
+  "dax_engine_checks_run": 47,
+  "dax_engine_checks_passed": 47,
+  "dax_engine_checks_failed": 0,
+  "verification_query": "dax/filter-context-verification.dax",
+  "pbix_saved_by_desktop": "dashboard/MOI-Corrected-2026-11-02.pbix",
+  "native_dashboard_pdf_pages": 4,
+  "corrected_case_study_pdf_pages": 6,
+  "visual_qa": "All four dashboard pages and all six case-study pages rendered and inspected",
+  "interactive_shift_check": {
+    "selection": "Night",
+    "nominal_capacity": 71960,
+    "active_reports": 40,
+    "charts_responded": true,
+    "filter_reset_to_all": true
+  },
+  "refresh_recovery": "First fresh-model load reported a cyclic evaluation. FactIncidents and DimTime previews loaded in Power Query; Close and Apply followed by Refresh completed successfully. The initial attempt is not counted as a pass.",
+  "remaining_caption": "The 8.4% card still displays Capacity Utilization; its actual denominator is nominal incident capacity 356984. It must not be described as measured productivity.",
+  "late_candidate_blocker": "A subsequent caption-only candidate showed Something went wrong. Two UI state capture attempts timed out. That candidate and its unexecuted additional checks were not adopted.",
+  "not_tested": [
+    "Power BI Service, gateway or scheduled refresh",
+    "RLS or production security deployment",
+    "Every possible bookmark and interaction combination",
+    "Future report filters using calculated Hour Label or Hour Time columns",
+    "Additional unexecuted verification cases prepared after the 47 successful checks",
+    "Real municipal data, live integration or real-world operational impact"
+  ],
+  "historical_snapshot": true,
+  "superseded_by": "../validation-2026-11-04/desktop-validation.json"
+}

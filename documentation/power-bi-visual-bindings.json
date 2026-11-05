@@ -1,0 +1,123 @@
+{
+  "source": "Read-only Report/Layout inspection; not a Desktop verification",
+  "bindings": [
+    {
+      "page": "Operations",
+      "visual_id": "bf083a1ad7858f73eab9",
+      "visual_type": "cardVisual",
+      "query_refs": [
+        "_Measures.Effective Incident Capacity"
+      ]
+    },
+    {
+      "page": "Operations",
+      "visual_id": "49f3a81cf1cc8b51f5a9",
+      "visual_type": "cardVisual",
+      "query_refs": [
+        "_Measures.Capacity Utilization"
+      ]
+    },
+    {
+      "page": "Operations",
+      "visual_id": "26907e66c7648a63057f",
+      "visual_type": "cardVisual",
+      "query_refs": [
+        "_Measures.Open Reports"
+      ]
+    },
+    {
+      "page": "Operations",
+      "visual_id": "6cc3afe63ceb098f7769",
+      "visual_type": "lineClusteredColumnComboChart",
+      "query_refs": [
+        "_Measures.Incoming Reports",
+        "_Measures.Effective Incident Capacity",
+        "DimDate.YearMonth",
+        "Min(DimDate.Date)"
+      ]
+    },
+    {
+      "page": "Operations",
+      "visual_id": "5ac12223c5675456e798",
+      "visual_type": "clusteredBarChart",
+      "query_refs": [
+        "DimDistrict.DistrictEN",
+        "_Measures.Capacity Utilization"
+      ]
+    },
+    {
+      "page": "Operations",
+      "visual_id": "e72eae2c3ca8bb4cb408",
+      "visual_type": "clusteredColumnChart",
+      "query_refs": [
+        "DimShift.Shift",
+        "_Measures.Avg Planned Teams",
+        "_Measures.Avg Available Teams"
+      ]
+    },
+    {
+      "page": "Operations",
+      "visual_id": "5654732e80f9ecae21f7",
+      "visual_type": "tableEx",
+      "query_refs": [
+        "DimDistrict.DistrictEN",
+        "_Measures.Capacity Utilization",
+        "_Measures.SLA Compliance",
+        "_Measures.Open Reports"
+      ]
+    },
+    {
+      "page": "AI Insights",
+      "visual_id": "94a283eb67c4c92039a5",
+      "visual_type": "cardVisual",
+      "query_refs": [
+        "_Measures.Average Predicted Risk"
+      ]
+    },
+    {
+      "page": "AI Insights",
+      "visual_id": "c7ce63c0d60fb6ab64f5",
+      "visual_type": "cardVisual",
+      "query_refs": [
+        "_Measures.High Risk Reports"
+      ]
+    },
+    {
+      "page": "AI Insights",
+      "visual_id": "c3b69d701823f4e0a024",
+      "visual_type": "cardVisual",
+      "query_refs": [
+        "_Measures.Open High Risk Reports"
+      ]
+    },
+    {
+      "page": "AI Insights",
+      "visual_id": "9a2e81e11f52a0d7b749",
+      "visual_type": "cardVisual",
+      "query_refs": [
+        "_Measures.Model Recall"
+      ]
+    },
+    {
+      "page": "AI Insights",
+      "visual_id": "1f1d7d5491aaeeef1a24",
+      "visual_type": "clusteredBarChart",
+      "query_refs": [
+        "DimDistrict.DistrictEN",
+        "_Measures.Average Predicted Risk",
+        "_Measures.High Risk Reports",
+        "_Measures.Open High Risk Reports",
+        "_Measures.Incoming Reports"
+      ]
+    },
+    {
+      "page": "AI Insights",
+      "visual_id": "8825aeb2f4b457316c34",
+      "visual_type": "donutChart",
+      "query_refs": [
+        "incident_ai_predictions.RiskBand",
+        "CountNonNull(incident_ai_predictions.IncidentID)"
+      ]
+    }
+  ]
+}
