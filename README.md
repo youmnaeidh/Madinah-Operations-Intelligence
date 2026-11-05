@@ -6,11 +6,11 @@ An end-to-end portfolio case study inspired by my internship experience at the M
 
 > **Project scope:** Independent portfolio prototype using synthetic data. It is not an official Municipality product and has not been production-deployed.
 
-> **Validated release — 5 November 2026:** The card now reads `Demand / Nominal Capacity` in full. The final saved PBIX was reopened in Power BI Desktop and passed all 47 DAX engine checks again. Its four-page design is preserved. Use the corrected deliverables below; the original PBIX, screenshots and PDFs remain historical files.
+> **Release verification:** The saved PBIX was reopened in Power BI Desktop and passed all 47 DAX engine checks. All four report pages and the full `Demand / Nominal Capacity` label are preserved. [Desktop verification evidence](documentation/validation-2026-11-04/desktop-validation.json) is available alongside the current deliverables; historical files remain archived.
 
-> **CI follow-up:** [Windows and Ubuntu validation passed](https://github.com/youmnaeidh/Madinah-Operations-Intelligence/actions/runs/41580486820) after preserving source bytes during Git checkout. All 18 tests and 30,000 prediction checks passed on both platforms. See [final QA](documentation/RELEASE-QA.md); the PR checks show validation for the latest commit.
+> **Automated checks:** [Windows and Ubuntu validation passed](https://github.com/youmnaeidh/Madinah-Operations-Intelligence/actions/runs/41987374357). All 18 tests and 30,000 prediction checks passed on both platforms. See [final QA](documentation/RELEASE-QA.md) for details. GitHub Actions does not run Power BI Desktop; native validation is documented separately.
 
-## Corrected deliverables
+## Current deliverables
 
 - [Power BI report](dashboard/MOI-Corrected-2026-11-02.pbix)
 - [Four-page dashboard PDF](documentation/MOI-Dashboard-Corrected-2026-11-02.pdf)
